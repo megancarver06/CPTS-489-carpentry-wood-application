@@ -5,50 +5,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TheWoodWorks | Order History</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
     <style>
- #header {
+        #header {
             padding-top: 20px;
-            padding-bottom: 20px; 
+            padding-bottom: 20px;
             border-bottom: 6px solid #4d243d;
             background-color: #d0a98f;
             position: fixed;
             width: 100%;
             top: 0;
-            height : 160px;
+            height: 160px;
         }
+
         #header_blank {
-            height : 200px;
+            height: 200px;
         }
+
         #footer {
             margin-top: 20px;
             padding-top: 20px;
-            padding-bottom: 20px; 
+            padding-bottom: 20px;
             background-color: #4d243d;
         }
+
         #footer p {
             color: #ecdcc9;
         }
+
         #logo {
             width: 400px;
             margin-bottom: 10px;
         }
+
         #logo:hover {
             cursor: pointer;
         }
+
         nav ul {
             list-style: none;
             margin: 0;
             padding: 0;
         }
+
         nav ul li {
             display: inline-block;
             position: relative;
         }
+
         nav ul li a {
             display: block;
             padding: 10px 20px;
@@ -58,22 +67,27 @@
             font-weight: bold;
             transition: background-color 0.3s;
         }
+
         nav ul li a:hover {
             background-color: #ecdcc9;
             border-bottom: 6px solid #4d243d;
         }
+
         nav ul li ul {
             display: none;
             position: absolute;
             background-color: #ecdcc9;
         }
+
         nav ul li:hover ul {
             display: block;
         }
+
         nav ul li ul li {
             display: block;
             white-space: nowrap;
         }
+
         nav ul li ul li a {
             display: block;
             padding: 10px 20px;
@@ -83,13 +97,35 @@
             font-weight: bold;
             transition: background-color 0.3s;
         }
+
         nav ul li ul li a:hover {
             background-color: #cac2b5;
         }
+
         .menu {
             margin-top: 50px;
             display: flex;
-            justify-content: flex-end; 
+            justify-content: flex-end;
+        }
+
+        .title h1 {
+            color: #4d243d;
+        }
+
+        h2 {
+            color: #cac2b5;
+        }
+
+        p {
+            color: #4d243d;
+        }
+
+        .card {
+            background-color: #d0a98f;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            width: 75%;
         }
     </style>
     <div id="header">
@@ -125,14 +161,71 @@
 
     <div id="header_blank">
         <!-- Leave this div empty -->
+    </div>
 
     <!--    ----- ADD NEW CONTENT HERE -----    -->
+    <div class="container">
+        <div class="title">
+            <h1>Order History</h1>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Order #0000001</h2>
+                <p class="card-text">Total: $100.00</p>
+            </div>
+
+            <div class="row row-cols-2">
+                <img src="Images/Wireframe Placeholder Images/dresser.jpeg" alt="Table"
+                    style="width: 150px; height: 150px;">
+                <p class="card-title">Product Title</p>
+            </div>
+
+            <div class="card-footer text-muted">
+                <p class="card-text">Purchased on 01/01/2022 from <a href="profile.html"><i>seller</i></a></p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Order #0000002</h2>
+                <p class="card-text">Total: $200.00</p>
+            </div>
+
+            <div class="row row-cols-2">
+                <img src="Images/Wireframe Placeholder Images/dresser.jpeg" alt="Table"
+                    style="width: 150px; height: 150px;">
+                <p class="card-title">Product Title</p>
+            </div>
+
+            <div class="card-footer text-muted">
+                <p class="card-text">Purchased on 01/01/2022 from <a href="profile.html"><i>seller</i></a></p>
+            </div>
+
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Order #0000003</h2>
+                <p class="card-text">Total: $300.00</p>
+            </div>
+
+            <div class="row row-cols-2">
+                <img src="Images/Wireframe Placeholder Images/dresser.jpeg" alt="Table"
+                    style="width: 150px; height: 150px;">
+                <p class="card-title">Product Title</p>
+            </div>
+
+            <div class="card-footer text-muted">
+                <p class="card-text">Purchased on 01/01/2022 from <a href="profile.html"><i>seller</i></a></p>
+            </div>
+        </div>
     </div>
+
     <div id="footer"></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" ß
         crossorigin="anonymous"></script>
-
 </body>
 
 </html>
