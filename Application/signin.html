@@ -110,6 +110,44 @@
         h1 {
             color:#d0a98f;
         }
+        .form_element small {
+            color: #d0a98f;
+        }
+        .form_element a {
+            color: #d0a98f;
+        }
+        .form {
+            background-color: #4d243d;
+            padding: 40px;
+            border-radius: 10px;
+        }
+        .form_element {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: #ecdcc9;
+            border-radius: 5px;
+            border: 2px solid #cac2b5;
+        }
+        label {
+            color: #d0a98f;
+            font-size: 16px;
+            padding-bottom: 5px;
+        }
+        input[type=submit] {
+            background-color: #d0a98f;
+            color: #4d243d;
+            padding: 12px 20px;
+            border: 2px solid #cac2b5;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #ecdcc9;
+        }
     </style>
     <div id="header">
         <div class="container">
@@ -148,24 +186,30 @@
 
     <!--    ----- ADD NEW CONTENT HERE -----    -->
     <div class = "container form">
-        <form action = "">
-            <div class = "form_element">
+        <form action = "">"
+            <div style = "float:left" class = "form_element">
                 <h1>Sign in</h1>
             </div>
-
-            <div class = "form_element">
-                <label for = "email">Email</label>
-                <input type = "text" id = "email" name = "email" placeholder = "Email">
+            <div style = "float:right" class = "form_element">
+                <a href = "signup.html">Don't have an account? Sign up</a>
             </div>
 
+            <div style = "clear:both"class = "form_element">
+                <label for = "email">Email</label>
+                <input type = "text" id = "email" name = "email" placeholder = "Email">
+                <small id="email-description" class="form-text">We'll never share your email with anyone else.</small>
+            </div>
+            
+
             <div class = "form_element">
-                <label for = "password">Password</label>
-                <input type = "password" id = "password" name = "password" placeholder = "Password">
+                <label for ="password">Password</label>
+                <input type = "text" id = "password" name = "password" placeholder = "Password">
             </div>
 
             <div class="form_element">
                 <input type="submit" value="Sign in">
             </div>
+
         </form>
     </div>
 
