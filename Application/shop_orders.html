@@ -89,6 +89,23 @@
             display: flex;
             justify-content: flex-end; 
         }
+
+        input[type=text] {
+            color:#4d243d;
+            border: 2px solid #4d243d;
+            border-radius: 5px;
+        }
+
+        input[type=text]:focus {
+            color: #4d243d;
+            background-color:#cac2b5;
+        }
+
+        ::placeholder {
+            color: #4d243d;
+            opacity: 1;
+        }
+
         .producttag-wood {
             text-align: center;
             color: white;
@@ -186,11 +203,17 @@
     <div class="container">
         <div class="row">
             <div class="row col">
-
-                <h1> Shop Orders </h1>
+                <div class="row justify-content-md-center">
+                    <div class="col-8">
+                        <h1> Shop Orders </h1>
+                    </div>
+                    <div class="col-2">
+                        <input type="text" placeholder="Search...">
+                    </div>
+                </div>
                 <hr>
-                <div class="row">
-                    <div class="col-10">
+                <div class="row justify-content-md-center">
+                    <div class="col-8">
                         <h2>Order #123456</h2>
                         <div style="display: inline-flex">
                             <p style="font-weight: bold; margin-inline: 5px;">Date Placed:</p>
@@ -213,8 +236,8 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row">
-                    <div class="col-10">
+                <div class="row justify-content-md-center">
+                    <div class="col-8">
                         <h2>Order #237890</h2>
                         <div style="display: inline-flex">
                             <p style="font-weight: bold; margin-inline: 5px;">Date Placed:</p>
@@ -237,8 +260,8 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row">
-                    <div class="col-10">
+                <div class="row justify-content-md-center">
+                    <div class="col-8">
                         <h2>Order #444444</h2>
                         <div style="display: inline-flex">
                             <p style="font-weight: bold; margin-inline: 5px;">Date Placed:</p>
