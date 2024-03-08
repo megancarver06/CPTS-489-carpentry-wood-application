@@ -18,7 +18,8 @@
             position: fixed;
             width: 100%;
             top: 0;
-            height : 160px;
+            height: 160px;
+            z-index: 100;
         }
 
         #header_blank {
@@ -106,6 +107,10 @@
             justify-content: flex-end; 
         }
 
+        a {
+            text-decoration: none;
+        }
+
         p {
             color: #4d243d;
         }
@@ -116,6 +121,11 @@
 
         h2 {
             color: #4d243d;
+        }
+
+        h3 {
+            color:#d0a98f;
+            margin: 10px 0px 0px 0px;
         }
 
         .headerimage {
@@ -130,12 +140,18 @@
             width: 250px;
             height: 250px;
             object-fit:contain;
-            position: absolute;
+            position:absolute;
             top: 320px;
             left: 400px;
             z-index: 1;
             border: 0px;
             border-radius: 20px;
+        }
+        
+        .artistimage {
+            width: 100%;
+            object-fit: contain;
+            margin-top: 50px;
         }
 
         .starrating {
@@ -148,6 +164,43 @@
         
         .shopmenuitem:hover {
             border-bottom: 0px;
+        }
+
+        input[type=text] {
+            color:#4d243d;
+            padding: 5px;
+            border: 2px solid #4d243d;
+            border-radius: 10px;
+        }
+
+        input[type=text]:focus {
+            color: #4d243d;
+            background-color:#cac2b5;
+        }
+
+        ::placeholder {
+            color: #4d243d;
+            opacity: 1;
+        }
+
+        .shopitem {
+            font-weight: bold;
+            font-size: large;
+            margin-bottom: 0px;
+        }
+
+        .shop_image {
+            width: 100%; 
+            height: 200px; 
+            object-fit: cover;
+            object-position: 25% 40%; 
+            border-radius: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .shop_image:hover {
+            opacity: 80%;
         }
     </style>
     <div id="header">
@@ -216,7 +269,113 @@
                         </nav>
                     </div>
                 </div>
+                <div class="row justify-content-end">
+                    <div class="col-2">
+                        <input type="text" placeholder="Search..." style="margin-top: 10px">
+                    </div>
+                </div>
+                <div class="row row-cols-4">
+                    <div>
+                        <a href="product_details.html">
+                            <img class="shop_image" src="Images/Wireframe Placeholder Images/dresser.jpeg">
+                            <p class="shopitem">Bedroom Dresser</p></a>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star"></span>
+                            <p>(221 Reviews)</p>
+                    </div>
+                    <div>
+                        <a href="product_details.html">
+                            <img class="shop_image" src="Images/Wireframe Placeholder Images/dresser.jpeg">
+                            <p class="shopitem">Bedroom Dresser</p></a>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star"></span>
+                            <p>(158 Reviews)</p>
+                    </div>
+                    <div>
+                        <a href="product_details.html">
+                            <img class="shop_image" src="Images/Wireframe Placeholder Images/dresser.jpeg">
+                            <p class="shopitem">Bedroom Dresser</p></a>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star"></span>
+                            <p>(456 Reviews)</p>
+                    </div>
+                    <div>
+                        <a href="product_details.html">
+                            <img class="shop_image" src="Images/Wireframe Placeholder Images/dresser.jpeg">
+                            <p class="shopitem">Bedroom Dresser</p></a>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star starrating"></span>
+                            <p>(777 Reviews)</p>
+                    </div>
+                    <div>
+                        <a href="product_details.html">
+                            <img class="shop_image" src="Images/Wireframe Placeholder Images/dresser.jpeg">
+                            <p class="shopitem">Bedroom Dresser</p></a>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <p>(158 Reviews)</p>
+                    </div>
+                    <div>
+                        <a href="product_details.html">
+                            <img class="shop_image" src="Images/Wireframe Placeholder Images/dresser.jpeg">
+                            <p class="shopitem">Bedroom Dresser</p></a>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <p>(5 Reviews)</p>
+                    </div>
+                    <div>
+                        <a href="product_details.html">
+                            <img class="shop_image" src="Images/Wireframe Placeholder Images/dresser.jpeg">
+                            <p class="shopitem">Bedroom Dresser</p></a>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star"></span>
+                            <p>(456 Reviews)</p>
+                    </div>
+                    <div>
+                        <a href="product_details.html">
+                            <img class="shop_image" src="Images/Wireframe Placeholder Images/dresser.jpeg">
+                            <p class="shopitem">Bedroom Dresser</p></a>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star"></span>
+                            <p>(24 Reviews)</p>
+                    </div>
+                    <div>
+                        <a href="product_details.html">
+                            <img class="shop_image" src="Images/Wireframe Placeholder Images/dresser.jpeg">
+                            <p class="shopitem">Bedroom Dresser</p></a>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star starrating"></span>
+                            <span class="fa fa-star"></span>
+                            <p>(96 Reviews)</p>
+                    </div>
 
+                </div>
             </div>
         </div>
     </div>
