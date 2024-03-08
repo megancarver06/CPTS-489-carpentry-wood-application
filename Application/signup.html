@@ -107,6 +107,62 @@
             display: flex;
             justify-content: flex-end;
         }
+
+        h1 {
+            color: #d0a98f;
+        }
+
+        .form_element small {
+            color: #d0a98f;
+        }
+
+        .form_element i {
+            color: #d0a98f;
+        }
+
+        .form_element a {
+            color: #d0a98f;
+        }
+
+        .form {
+            background-color: #4d243d;
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        .form_element {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        input[type=text],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: #ecdcc9;
+            border-radius: 5px;
+            border: 2px solid #cac2b5;
+        }
+
+        label {
+            color: #d0a98f;
+            font-size: 16px;
+            padding-bottom: 5px;
+        }
+
+        input[type=submit] {
+            background-color: #d0a98f;
+            color: #4d243d;
+            padding: 12px 20px;
+            border: 2px solid #cac2b5;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #ecdcc9;
+        }
     </style>
     <div id="header">
         <div class="container">
@@ -143,31 +199,42 @@
         <!-- Leave this div empty -->
     </div>
 
-    <div class ="container form">
-        <form action = "">
-            <div class = "form element">
+    <!--    ----- ADD NEW CONTENT HERE -----    -->
+    <div class="container form">
+        <form action="">
+            <div style="float:left" class="form_element">
                 <h1>Create your account</h1>
+            </div>
+
+            <div style="float:right" class="form_element">
+                <a href="signin.html">Already have an account? Sign in</a>
+            </div>
+
+            <div style = "clear:both" class="form_element">
+                <i>Beautifully hand-crafted pieces at the reach of your hands</i>
+            </div>
+
+            <div style="clear:both" class="form_element">
+                <label for="email">Email address</label>
+                <input type="text" id="email" name="email" placeholder="Email address">
+            </div>
+
+            <div class="form_element">
+                <label for="firstName">First name</label>
+                <input type="text" id="firstName" name="firstName" placeholder="First name">
+            </div>
+
+            <div class="form_element">
+                <label for="password">Password</label>
+                <input type="text" id="password" name="password" placeholder="Password">
+            </div>
+
+            <div class="form_element">
+                <input type="submit" value="Sign up">
             </div>
         </form>
 
-        <div class = "form element">
-            <label for ="email">Email address</label>
-            <input type = "text" id = "email" name = "email" placeholder = "Email address">
-        </div>
 
-        <div class = "form element">
-            <label for ="firstName">First name</label>
-            <input type ="text" id="firstName" name="firstName" placeholder="First name">
-        </div>
-
-        <div class = "form element">
-            <label for ="password">Password</label>
-            <input type = "text" id = "password" name = "password" placeholder = "Password">
-        </div>
-        
-        <div class = "form element">
-            <input type ="submit" value="Sign up">
-        </div>
     </div>
 
     <div id="footer"></div>
