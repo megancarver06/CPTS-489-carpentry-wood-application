@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheWoodWorks | Shop Orders</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="seller_index.css">
+</head>
+<body>
+    <style>
+        #header {
+            padding-top: 20px;
+            padding-bottom: 20px; 
+            border-bottom: 6px solid #4d243d;
+            background-color: #d0a98f;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            height : 160px;
+        }
+
+        #header_blank {
+            height : 200px;
+        }
+
+        #footer {
+            margin-top: 20px;
+            padding-top: 20px;
+            padding-bottom: 20px; 
+            background-color: #4d243d;
+        }
+
+        #footer p {
+            color: #ecdcc9;
+        }
+
+        #logo {
+            width: 400px;
+            margin-bottom: 10px;
+        }
+
+        #logo:hover {
+            cursor: pointer;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            position: relative;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #4d243d;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #ecdcc9;
+            border-bottom: 6px solid #4d243d;
+        }
+
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            background-color: #ecdcc9;
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        nav ul li ul li {
+            display: block;
+            white-space: nowrap;
+        }
+
+        nav ul li ul li a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #4d243d;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li ul li a:hover {
+            background-color: #cac2b5;
+        }
+        
+        .menu {
+            margin-top: 50px;
+            display: flex;
+            justify-content: flex-end; 
+        }
+
+        .producttag-wood {
+            text-align: center;
+            color: white;
+            font-size: small;
+            margin: 5px;
+            padding: 5px;
+            border-style: solid;
+            border-color: #36453B;
+            border-radius: 25px;
+            background-color: #36453B;
+        }
+
+        .producttag-item {
+            text-align: center;
+            color: white;
+            font-size: small;
+            margin: 5px;
+            padding: 5px;
+            border-style: solid;
+            border-color: #4d243d;
+            border-radius: 25px;
+            background-color: #4d243d;
+        }
+
+        .order {
+            border: 2px solid #cac2b5;
+            border-radius: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 2px;
+            margin-right: 2px;
+            background-color:#cac2b5;
+        }
+
+        p {
+            color: #4d243d;
+        }
+
+        h1 {
+            color:#36453B;
+        }
+
+        h2 {
+            color: #4d243d;
+        }
+
+        input[type=submit] {
+            background-color: #4d243d;
+            color: #ecdcc9;
+            font-weight: bold;
+            text-align: center;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        input[type=submit]:hover {
+            background-color: #ecdcc9;
+            color:#4d243d;
+        }
+
+        input[type=text] {
+            color:#4d243d;
+            padding: 5px;
+            border: 2px solid #4d243d;
+            border-radius: 10px;
+        }
+
+        input[type=text]:focus {
+            color: #4d243d;
+            background-color:#cac2b5;
+        }
+
+        ::placeholder {
+            color: #4d243d;
+            opacity: 1;
+        }
+    </style>
+ 
+    <%- include('navbar'); %>
+
+    <!--    ----- ADD NEW CONTENT HERE -----    -->
+    <div class="container">
+        <div class="row">
+            <div class="row col">
+                <div class="row justify-content-md-center">
+                    <div class="col-8">
+                        <h1> Shop Orders </h1>
+                    </div>
+                    <div class="col-2">
+                        <input type="text" placeholder="Search...">
+                    </div>
+                </div>
+                <hr>
+                <div class="row justify-content-md-center order">
+                    <div class="col-8">
+                        <h2>Order #123456</h2>
+                        <div style="display: inline-flex">
+                            <p style="font-weight: bold; margin-inline: 5px;">Date Placed:</p>
+                            <p>03/07/2024</p>
+                        </div>
+                        <br>
+                        <div style="display: inline-flex">
+                            <p style="font-weight: bold; margin-inline: 5px;">Order Status:</p>
+                            <p>Shipped</p>
+                        </div>
+                        <br>
+                        <div style="display: inline-flex">
+                            <p style="font-weight: bold; margin-inline: 5px;">Quantity of items:</p>
+                            <p>3</p>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <input type="submit" value="View Details">
+                        <input type="submit" value="Print Shipping Label">
+                    </div>
+                </div>
+                <div class="row justify-content-md-center order">
+                    <div class="col-8">
+                        <h2>Order #237890</h2>
+                        <div style="display: inline-flex">
+                            <p style="font-weight: bold; margin-inline: 5px;">Date Placed:</p>
+                            <p>03/17/2024</p>
+                        </div>
+                        <br>
+                        <div style="display: inline-flex">
+                            <p style="font-weight: bold; margin-inline: 5px;">Order Status:</p>
+                            <p>Processing</p>
+                        </div>
+                        <br>
+                        <div style="display: inline-flex">
+                            <p style="font-weight: bold; margin-inline: 5px;">Quantity of items:</p>
+                            <p>20</p>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <input type="submit" value="View Details">
+                        <input type="submit" value="Print Shipping Label">
+                    </div>
+                </div>
+                <div class="row justify-content-md-center order">
+                    <div class="col-8">
+                        <h2>Order #444444</h2>
+                        <div style="display: inline-flex">
+                            <p style="font-weight: bold; margin-inline: 5px;">Date Placed:</p>
+                            <p>03/27/2024</p>
+                        </div>
+                        <br>
+                        <div style="display: inline-flex">
+                            <p style="font-weight: bold; margin-inline: 5px;">Order Status:</p>
+                            <p>Received</p>
+                        </div>
+                        <br>
+                        <div style="display: inline-flex">
+                            <p style="font-weight: bold; margin-inline: 5px;">Quantity of items:</p>
+                            <p>1</p>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <input type="submit" value="View Details">
+                        <input type="submit" value="Print Shipping Label">
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
