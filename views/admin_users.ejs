@@ -168,86 +168,26 @@
                     <th>Email</th>
                     <th>Block</th>
                 </tr>
-                <tr>
-                    <td>johnnyappleseed</td>
-                    <td>Seller</td>
-                    <td>jappleseed@gmail.com</td>
-                    <td>
-                        <input type="submit" value="Block User">
-                    </td>
-                </tr>
-                <tr>
-                    <td>johnnyappleseed</td>
-                    <td>Seller</td>
-                    <td>jappleseed@gmail.com</td>
-                    <td>
-                        <input type="submit" value="Block User">
-                    </td>
-                </tr>
-                <tr>
-                    <td>johnnyappleseed</td>
-                    <td>Seller</td>
-                    <td>jappleseed@gmail.com</td>
-                    <td>
-                        <input type="submit" value="Block User">
-                    </td>
-                </tr>
-                <tr>
-                    <td>johnnyappleseed</td>
-                    <td>Seller</td>
-                    <td>jappleseed@gmail.com</td>
-                    <td>
-                        <input type="submit" value="Block User">
-                    </td>
-                </tr>
-                <tr>
-                    <td>johnnyappleseed</td>
-                    <td>Seller</td>
-                    <td>jappleseed@gmail.com</td>
-                    <td>
-                        <input type="submit" value="Block User">
-                    </td>
-                </tr>
-                <tr>
-                    <td>johnnyappleseed</td>
-                    <td>Seller</td>
-                    <td>jappleseed@gmail.com</td>
-                    <td>
-                        <input type="submit" value="Block User">
-                    </td>
-                </tr>
-                <tr>
-                    <td>johnnyappleseed</td>
-                    <td>Seller</td>
-                    <td>jappleseed@gmail.com</td>
-                    <td>
-                        <input type="submit" value="Block User">
-                    </td>
-                </tr>
-                <tr>
-                    <td>johnnyappleseed</td>
-                    <td>Seller</td>
-                    <td>jappleseed@gmail.com</td>
-                    <td>
-                        <input type="submit" value="Block User">
-                    </td>
-                </tr>
-                <tr>
-                    <td>johnnyappleseed</td>
-                    <td>Seller</td>
-                    <td>jappleseed@gmail.com</td>
-                    <td>
-                        <input type="submit" value="Block User">
-                    </td>
-                </tr>
-                <tr>
-                    <td>johnnyappleseed</td>
-                    <td>Seller</td>
-                    <td>jappleseed@gmail.com</td>
-                    <td>
-                        <input type="submit" value="Block User">
-                    </td>
-                </tr>
+                <% for (buyer of buyers) { %>
+                    <tr>
+                        <td><%= buyer.username %></td>
+                        <td>Buyer</td>
+                        <td><%= buyer.email %></td>
+                        <td>
+                            <input type="submit" value="Block User">
+                        </td>
+                    </tr>
+                <% } %>
+                <% for (seller of sellers) { %>
+                    <tr>
+                        <td><%= seller.username %></td>
+                        <td>Seller</td>
+                        <td><%= seller.email %></td>
+                        <td>
+                            <input type="submit" value="Block User">
+                        </td>
+                    </tr>
+                <% } %>
             </table>
         </div>
     </div>
