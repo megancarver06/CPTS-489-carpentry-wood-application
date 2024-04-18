@@ -13,7 +13,7 @@ class Orders extends Model {
     }
 }
 
-Listing.init({
+Orders.init({
   ordernum: {
     type: DataTypes.STRING,
     primaryKey: true,
