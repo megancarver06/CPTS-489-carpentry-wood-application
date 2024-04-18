@@ -3,6 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+//const session = require('express-session');
+const sequelize = require('./db');
+const Admin = require('./models/Admin');
+const Buyer = require('./models/Buyer');
+const Seller = require('./models/Seller');
+const Listing = require('./models/Listing');
+const Orders = require('./models/Orders');
 
 var indexRouter = require('./routes/index');
 var aboutUsRouter = require('./routes/about_us');
@@ -69,5 +76,19 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+async function setup() {
+  const meganadmin = await Admin.create({username: "meganadmin", password: "1234", email: "megan.carver@wsu.edu"})
+  console.log("Megan Admin instance created");
+  const meganbuyer = await Buyer.create({username: "meganbuyer", password: "1234", email: "megan.carver@wsu.edu"})
+  console.log("Megan Buyer instance created");
+  const meganseller = await Seller.create({storename: "Megan's Shop", username: "meganseller", password: "1234", email: "megan.carver@wsu.edu"})
+  console.log("Megan Admin instance created");
+}
+
+sequelize.sync({ force: true }).then(() => {
+  console.log("Sequelize Sync Completed...")
+  setup().then(()=> console.log("Admin, Buyer, and Seller setup completed."));
+})
 
 module.exports = app;
