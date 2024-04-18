@@ -6,4 +6,5 @@ router.get('/', function(req, res, next) {
   res.render('faq');
 });
 
+
 module.exports = router;
