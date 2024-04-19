@@ -174,17 +174,21 @@
                         <td>Buyer</td>
                         <td><%= buyer.email %></td>
                         <td>
-                            <input type="submit" value="Block User">
+                            <form action= <%= "admin_users/deletebuyer/"+buyer.username %> method="get">
+                                <input type="submit" value="Delete User">
+                            </form>
                         </td>
                     </tr>
                 <% } %>
                 <% for (seller of sellers) { %>
                     <tr>
-                        <td><%= seller.username %></td>
+                        <td><%= seller.storename %></td>
                         <td>Seller</td>
                         <td><%= seller.email %></td>
                         <td>
-                            <input type="submit" value="Block User">
+                            <form action= <%= "admin_users/deleteseller/"+seller.storename %> method="get">
+                                <input type="submit" value="Delete User">
+                            </form>
                         </td>
                     </tr>
                 <% } %>
