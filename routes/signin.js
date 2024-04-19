@@ -1,5 +1,4 @@
 var express = require('express');
-const Admin = require('../models/Admin');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local');
@@ -10,21 +9,28 @@ router.get('/', function(req, res, next) {
   res.render('signin');
 });
 
-passport.use(new LocalStrategy(async function verify(username, password, done) {
-  try{
-      const user = await User.findOne({where: {username: username}});
-      if(!user){
-        return done(null, false, {message: 'Incorrect username or password'});
-      }
+// passport.use(new LocalStrategy(async function verify(username, password, done) {
+//   try{
+//       const user = await User.findOne({where: {username: username}});
+//       if(!user){
+//         return done(null, false, {message: 'Incorrect username or password'});
+//       }
 
-      // crypto.pbkdf2(password, user.salt, 100000, 64, 'sha512', (err, key) => {
+//       crypto.pbkdf2(password, user.salt, 100000, 64, 'sha512', async (err, hashedPassword) => {
+//         if(err) {return done(err);}
 
-  }catch(error){
-    return done(error);
-  }
+//         if(!crypto.timingSafeEqual(user.password, hashedPassword)){
+//           return done(null, false, {message: 'Incorrect username or password'});
+//         }
+
+//         return done(null, user, {message: 'Logged in successfully'})
+//       });
+//   }catch(error){
+//     return done(error);
+//   }
 
 
-}));
+// }));
 
 /* POST signin form submission. */
 router.post('/', async function(req, res, next) {
