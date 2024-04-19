@@ -80,7 +80,7 @@ async function setup() {
   console.log("Megan Admin instance created");
   const meganbuyer = await User.create({username: "meganbuyer", password: "1234", usertype: "Buyer", email: "megan.carver@wsu.edu"})
   console.log("Megan Buyer instance created");
-  const meganseller = await User.create({username: "meganseller", password: "1234", usertype: "Seller", email: "megan.carver@wsu.edu"})
+  const meganseller = await User.create({username: "meganseller", password: "1234", usertype: "Seller", email: "megan.carver@wsu.edu", shopname: "Megan's Shop", shopdesc: "This is Megan's shop."})
   console.log("Megan Seller instance created");
 }
 
