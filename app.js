@@ -5,11 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 //const session = require('express-session');
 const sequelize = require('./db');
-const Admin = require('./models/Admin');
-const Buyer = require('./models/Buyer');
-const Seller = require('./models/Seller');
 const Listing = require('./models/Listing');
 const Orders = require('./models/Orders');
+const User = require('./models/User');
 
 var indexRouter = require('./routes/index');
 var aboutUsRouter = require('./routes/about_us');
@@ -78,12 +76,12 @@ app.use(function(err, req, res, next) {
 });
 
 async function setup() {
-  const meganadmin = await Admin.create({username: "meganadmin", password: "1234", email: "megan.carver@wsu.edu"})
+  const meganadmin = await User.create({username: "meganadmin", password: "1234", usertype: "Admin", email: "megan.carver@wsu.edu"})
   console.log("Megan Admin instance created");
-  const meganbuyer = await Buyer.create({username: "meganbuyer", password: "1234", email: "megan.carver@wsu.edu"})
+  const meganbuyer = await User.create({username: "meganbuyer", password: "1234", usertype: "Buyer", email: "megan.carver@wsu.edu"})
   console.log("Megan Buyer instance created");
-  const meganseller = await Seller.create({storename: "Megan's Shop", username: "meganseller", password: "1234", email: "megan.carver@wsu.edu"})
-  console.log("Megan Admin instance created");
+  const meganseller = await User.create({username: "meganseller", password: "1234", usertype: "Seller", email: "megan.carver@wsu.edu"})
+  console.log("Megan Seller instance created");
 }
 
 sequelize.sync({ force: true }).then(() => {
