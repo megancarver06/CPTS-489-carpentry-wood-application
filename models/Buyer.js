@@ -15,6 +15,16 @@ class Buyer extends Model {
             return null
         }
     }
+    
+    static async getBuyer(username) {
+      try {
+          const buyer = await Buyer.findByPk(username)
+          return buyer ? buyer : null;
+      } catch(error) {
+          console.log(error)
+          return null
+      }
+  }
 }
 
 Buyer.init({

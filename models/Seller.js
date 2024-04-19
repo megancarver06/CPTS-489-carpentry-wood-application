@@ -15,6 +15,16 @@ class Seller extends Model {
             return null
         }
     }
+
+    static async getSeller(courseid) {
+      try {
+          const seller = await Seller.findByPk(storename)
+          return seller ? seller : null;
+      } catch(error) {
+          console.log(error)
+          return null
+      }
+  }
 }
 
 Seller.init({
