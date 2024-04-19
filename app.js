@@ -82,6 +82,10 @@ async function setup() {
   console.log("Megan Buyer instance created");
   const meganseller = await User.create({username: "meganseller", password: "1234", usertype: "Seller", email: "megan.carver@wsu.edu", shopname: "Megan's Shop", shopdesc: "This is Megan's shop."})
   console.log("Megan Seller instance created");
+
+  const listing1 = await Listing.create({listingid: "1", image1: "/Images/Wireframe Placeholder Images/dresser.jpeg", image2: "/Images/Wireframe Placeholder Images/dresser2.jpeg", image3: "/Images/Wireframe Placeholder Images/dresser3.jpeg", image4: "/Images/Wireframe Placeholder Images/dresser4.jpeg", listingtitle: "Test Listing One", listingprice: "$90.00", listingdesc: "This is a test listing to see if we can display the listings correctly. Do not purchase this listing.", listingwidth: "90in", listingheight: "70in", listingdepth: "50in", listingseller: "meganseller"})
+  const listing2 = await Listing.create({listingid: "2", image1: "/Images/Wireframe Placeholder Images/dresser.jpeg", image2: "/Images/Wireframe Placeholder Images/dresser2.jpeg", image3: "/Images/Wireframe Placeholder Images/dresser3.jpeg", image4: "/Images/Wireframe Placeholder Images/dresser4.jpeg", listingtitle: "Test Listing Two", listingprice: "$39.99", listingdesc: "This is a test listing to see if we can display the listings correctly. Do not purchase this listing.", listingwidth: "120in", listingheight: "70in", listingdepth: "60in", listingseller: "meganseller"})
+  const listing3 = await Listing.create({listingid: "3", image1: "/Images/Wireframe Placeholder Images/dresser.jpeg", image2: "/Images/Wireframe Placeholder Images/dresser2.jpeg", image3: "/Images/Wireframe Placeholder Images/dresser3.jpeg", image4: "/Images/Wireframe Placeholder Images/dresser4.jpeg", listingtitle: "Test Listing Three", listingprice: "$124.99", listingdesc: "This is a test listing to see if we can display the listings correctly. Do not purchase this listing.", listingwidth: "150in", listingheight: "90in", listingdepth: "75in", listingseller: "meganseller"})
 }
 
 sequelize.sync({ force: true }).then(() => {

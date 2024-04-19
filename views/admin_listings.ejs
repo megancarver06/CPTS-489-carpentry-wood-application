@@ -140,10 +140,7 @@
             padding-bottom: 40px;
         }
         .listing_image {
-            width: 130px; 
-            height: 130px; 
-            object-fit: cover;
-            object-position: 25% 25%; 
+            width: 100%; 
             border-radius: 5px;
             margin-top: 15px;
             margin-bottom: 10px;
@@ -158,12 +155,6 @@
         .listing {
             border: 2px solid #cac2b5;
             border-radius: 10px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            margin-left: 2px;
-            margin-right: 2px;
         }
         .listing_description {
             padding-top: 15px;
@@ -185,26 +176,28 @@
                 </div>
             </form>
         </div>
-        <div class="row row-cols-4">
+        <div class="row row-cols-3">
             <% for (listing of listings) { %>
                 <div>
                     <div class="row row-cols-2 listing">
                         <div>
-                            <a href=""><img class="listing_image" src="Images/Wireframe Placeholder Images/dresser.jpeg"></a>
-                            <form action= <%= "admin_listings/deletelisting/"+listing.listingid %> method="get">
-                                <input type="submit" value="Remove Listing">
-                            </form>
+                            <div>
+                                <a href= <%="/product_details/"+listing.listingid %>><img class="listing_image" src="/images/Wireframe Placeholder Images/dresser.jpeg"></a>
+                            </div>
+                            <div>
+                                <form action= <%= "/admin_listings/delete/"+listing.listingid %> method="get">
+                                    <input type="submit" value="Remove Listing">
+                                </form>
+                            </div>
                         </div>
                         <div class="listing_description">
-                            <ul>
-                                <li>Product Title: <strong>title</strong></li>
-                                <li>Price: $00.00</li>
-                                <li>Description: item description here</li>
-                                <li>Width: 64 inches</li>
-                                <li>Height: 32 inches</li>
-                                <li>Depth: 18 inches</li>
-                                <li>Seller: <strong>Timber Treasures</strong></li>
-                            </ul>
+                                <p><strong><%= listing.listingtitle %></strong></p>
+                                <p><%=listing.listingprice %></p>
+                                <p><%=listing.listingdesc %></p>
+                                <p><%= "Width: "+listing.listingwidth %></p>
+                                <p><%= "Height: "+listing.listingheight %></p>
+                                <p><%= "Depth: "+listing.listingdepth %></p>
+                                <p><strong><%= "Sold by: "+listing.listingseller %></strong></p>
                         </div>
                     </div>
                 </div>
