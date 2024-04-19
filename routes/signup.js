@@ -1,39 +1,29 @@
 var express = require('express');
 var router = express.Router();
+const Buyer = require('../models/Buyer');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('signup');
 });
 
-router.post('/', async function(req, res, next) {
-  const { username, password, email, type } = req.body;
-  if(type === 'buyer') {
-    const Buyer = require('../models/Buyer');
-    const buyer = await Buyer.create({ username, password, email });
-    if(buyer) {
-      res.redirect('/signin');
-    } else {
-      res.redirect('/signup');
+router.post('/signup', async function(req, res, next) {
+  try {
+    const { username, password, email, accountType, storeName } = req.body;
+
+    if (accountType === 'Buyer') {
+      await Buyer.create({ username, password, email });
+    } else if (accountType === 'Admin') {
+      await Admin.create({ username, password, email });
+    } else if (accountType === 'Seller') {
+      await Seller.create({ username, password, email, storeName });
     }
-  } else if(type === 'seller') {
-    const Seller = require('../models/Seller');
-    const seller = await Seller.create({ username, password, email });
-    if(seller) {
-      res.redirect('/signin');
-    } else {
-      res.redirect('/signup');
-    }
-  } else if(type === 'admin') {
-    const Admin = require('../models/Admin');
-    const admin = await Admin.create({ username, password, email });
-    if(admin) {
-      res.redirect('/signin');
-    } else {
-      res.redirect('/signup');
-    }
-  } else {
-    res.redirect('/signup');
+
+    // Redirect to profile page or any other page after successful sign up
+    res.redirect("/profile?msg=created");
+  } catch(error) {
+    console.error(error);
+    res.redirect("/signup?msg=error");
   }
 });
 
