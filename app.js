@@ -80,7 +80,7 @@ async function setup() {
   console.log("Megan Admin instance created");
   const meganbuyer = await User.create({username: "meganbuyer", password: "1234", usertype: "Buyer", email: "megan.carver@wsu.edu"})
   console.log("Megan Buyer instance created");
-  const meganseller = await User.create({username: "meganseller", password: "1234", usertype: "Seller", email: "megan.carver@wsu.edu"})
+  const meganseller = await User.create({username: "meganseller", password: "1234", usertype: "Seller", email: "megan.carver@wsu.edu", shopname: "Megan's Shop", shopdesc: "This is Megan's shop."})
   console.log("Megan Seller instance created");
 
   const listing1 = await Listing.create({listingid: "1", image1: "/Images/Wireframe Placeholder Images/dresser.jpeg", image2: "/Images/Wireframe Placeholder Images/dresser2.jpeg", image3: "/Images/Wireframe Placeholder Images/dresser3.jpeg", image4: "/Images/Wireframe Placeholder Images/dresser4.jpeg", listingtitle: "Test Listing One", listingprice: "$90.00", listingdesc: "This is a test listing to see if we can display the listings correctly. Do not purchase this listing.", listingwidth: "90in", listingheight: "70in", listingdepth: "50in", listingseller: "meganseller"})
