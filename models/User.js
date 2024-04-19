@@ -39,6 +39,10 @@ User.init({
     type: DataTypes.STRING,
     allowNull: false
   },
+  salt: {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
   usertype: {
     type: DataTypes.STRING,
     allowNull: false
@@ -49,7 +53,8 @@ User.init({
   },
   shopname : {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
+    unique: true
   },
   shopdesc : {
     type: DataTypes.STRING,
