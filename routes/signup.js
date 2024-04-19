@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const User = require('../models/User');
+var crypto = require('crypto');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -10,13 +11,25 @@ router.get('/', function(req, res, next) {
 router.post('/', async function(req, res, next) {
   try {
     const { username, password, usertype, email, shopname, shopdesc } = req.body;
-    console.log(req.body)
-    const user = await User.create({ username, password, usertype, email, shopname, shopdesc });
-    res.redirect("/profile?msg=created");
+    
+    // Generate salt
+    let salt = crypto.randomBytes(16);
+    
+    // Derive key asynchronously
+    let derivedKey = await new Promise((resolve, reject) => {
+      crypto.pbkdf2(password, salt, 100000, 64, 'sha512', (err, key) => {
+        if (err) reject(err);
+        resolve(key.toString('hex'));
+      });
+    });
+
+    // Create user with derivedKey
+    const user = await User.create({ username, password: derivedKey, usertype, email, shopname, shopdesc });
+    res.redirect("/signin?msg=created");
+
   } catch(error) {
-    console.log(req.body)
     console.error(error);
-    res.redirect("/signup?msg=error");
+    res.redirect("/signup?failed=2");
   }
 });
 
