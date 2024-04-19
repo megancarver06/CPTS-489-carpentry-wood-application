@@ -19,10 +19,6 @@ Listing.init({
     primaryKey: true,
     allowNull: false
   },
-  coursename: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
   image1: {
     type: DataTypes.STRING,
     allowNull: false
