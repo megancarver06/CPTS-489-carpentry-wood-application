@@ -168,25 +168,13 @@
                     <th>Email</th>
                     <th>Block</th>
                 </tr>
-                <% for (buyer of buyers) { %>
+                <% for (user of users) { %>
                     <tr>
-                        <td><%= buyer.username %></td>
-                        <td>Buyer</td>
-                        <td><%= buyer.email %></td>
+                        <td><%= user.username %></td>
+                        <td><%= user.usertype %></td>
+                        <td><%= user.email %></td>
                         <td>
-                            <form action= <%= "admin_users/deletebuyer/"+buyer.username %> method="get">
-                                <input type="submit" value="Delete User">
-                            </form>
-                        </td>
-                    </tr>
-                <% } %>
-                <% for (seller of sellers) { %>
-                    <tr>
-                        <td><%= seller.storename %></td>
-                        <td>Seller</td>
-                        <td><%= seller.email %></td>
-                        <td>
-                            <form action= <%= "admin_users/deleteseller/"+seller.storename %> method="get">
+                            <form action= <%= "/admin_users/delete/"+user.username %> method="get">
                                 <input type="submit" value="Delete User">
                             </form>
                         </td>
