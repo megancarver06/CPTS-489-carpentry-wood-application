@@ -163,52 +163,100 @@
         input[type=submit]:hover {
             background-color: #ecdcc9;
         }
+
+        .form-group {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: #ecdcc9
+        }
+        .form-control {
+            color: #ecdcc9;
+            border-radius: 5px;
+            border: 2px solid #cac2b5;
+        }
     </style>
 
     <%- include('navbar'); %>
 
-    <!--    ----- ADD NEW CONTENT HERE -----    -->
-    <div class="container form">
-        <form action="">
+        <!--    ----- ADD NEW CONTENT HERE -----    -->
+        <div class="container form">
+
             <div style="float:left" class="form_element">
                 <h1>Create your account</h1>
             </div>
 
             <div style="float:right" class="form_element">
-                <a href="signin.html">Already have an account? Sign in</a>
-            </div>
-
-            <div style = "clear:both" class="form_element">
-                <i>Beautifully hand-crafted pieces at the reach of your hands</i>
+                <a href="signin">Already have an account? Sign in</a>
             </div>
 
             <div style="clear:both" class="form_element">
-                <label for="email">Email address</label>
-                <input type="text" id="email" name="email" placeholder="Email address">
+                <i>Beautifully hand-crafted pieces at the reach of your hands</i>
             </div>
 
-            <div class="form_element">
-                <label for="firstName">First name</label>
-                <input type="text" id="firstName" name="firstName" placeholder="First name">
-            </div>
+            <form action="">
+                <div style="clear:both" class="form_element">
+                    <label for="email">Email address</label>
+                    <input type="text" id="email" name="email" placeholder="Email address" required autofocus>
+                </div>
 
-            <div class="form_element">
-                <label for="password">Password</label>
-                <input type="text" id="password" name="password" placeholder="Password">
-            </div>
+                <div class="form_element">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Username" required autofocus>
+                </div>
 
-            <div class="form_element">
-                <input type="submit" value="Sign up">
-            </div>
-        </form>
+                <div class="form_element">
+                    <label for="password">Password</label>
+                    <input type="text" id="password" name="password" placeholder="Password" required autofocus>
+                </div>
+
+                <div class="form-group">
+                    <label for="Account Type">Account Type</label>
+                    </label>
+                    <select class="form-control" id="accountType">
+                        <option>Admin</option>
+                        <option>Buyer</option>
+                        <option>Seller</option>
+                    </select>
+                </div>
+                
+                <div class = "form-group" id="storeNameInput" style="display: none;">
+                    <label for="storeName">Store Name</label>
+                    <input type="text" class="form-control" id="storeName" name="storeName" placeholder="Store Name" required autofocus>
+                </div>
+
+                <div class="form_element">
+                    <input type="submit" value="Sign up">
+                </div>
+            </form>
 
 
-    </div>
+        </div>
 
-    <div id="footer"></div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+        <div id="footer"></div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const accountTypeSelect = document.getElementById('accountType');
+                const storeNameInput = document.getElementById('storeNameInput');
+    
+                // Function to show or hide the store name input based on account type selection
+                function toggleStoreNameInput() {
+                    if (accountTypeSelect.value === 'Seller') {
+                        storeNameInput.style.display = 'block';
+                    } else {
+                        storeNameInput.style.display = 'none';
+                    }
+                }
+    
+                // Initial call to set the initial state based on the selected value
+                toggleStoreNameInput();
+    
+                // Event listener to call the function when the account type selection changes
+                accountTypeSelect.addEventListener('change', toggleStoreNameInput);
+            });
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>
