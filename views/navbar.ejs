@@ -98,14 +98,25 @@
                 </div>
                 <div class="menu">
                     <nav>
+                        <% if (!user) { %>
+                            <p>Welcome to TheWoodWorks Marketplace</p>
+                        <% } %>
+                        <% if (user) { %>
+                            <p>Hello <%= user.username %></p>
+                        <% } %>
                         <ul>
                             <!-- ADD LOGIC FOR ALL USERS EXCEPT ADMIN -->
+                            <% if (!user || (user && !(user.usertype === 'Admin'))) { %>
                             <li><a id="menu-link" href="/">Shop</a></li>
+                            <% } %>
                             <!-- ADD LOGIC FOR ADMIN USERS -->
+                            <% if (user && user.usertype=== 'Admin') { %>
                             <li><a id="menu-link" href="/admin_users">Users</a></li>
                             <!-- ADD LOGIC FOR ADMIN USERS -->
                             <li><a id="menu-link" href="/admin_listings">Listings</a></li>
+                            <% } %>
                             <!-- ADD LOGIC FOR ALL USERS EXCEPT ADMIN -->
+                            <% if (!user || (user && !(user.usertype === 'Admin'))) { %>
                             <li>
                                 <a id="menu-link" href="#">About</a>
                                 <ul>
@@ -114,7 +125,9 @@
                                     <li><a href="/contact_us">Contact Us</a></li>
                                 </ul>
                             </li>
+                            <% } %>
                             <!-- ADD LOGIC FOR SELLERS -->
+                            <% if (user && user.usertype === 'Seller') { %>
                             <li>
                                 <a id="menu-link" href="#">My Store</a>
                                 <ul>
@@ -123,6 +136,7 @@
                                     <li><a href="/shop_orders">Store Orders</a></li>
                                 </ul>
                             </li>
+                            <% } %>
                             <li>
                                 <a href="#">Profile</a>
                                 <ul>
@@ -138,12 +152,12 @@
                                             <li><a href="/shopping_cart">My Cart</a></li>
                                             <li><a href="/order_history">Order History</a></li>
                                             <% } %>
-                                        <% if (user.usertype === 'Buyer' || user.usertype === 'Seller') { %>
-                                            <li><a href="/signout">Sign Out</a></li>
+                                        <% if (user) { %>
+                                            <form action="/signout" method="post">
+                                                <li><button type="submit" class = "btn btn-link">Sign Out</button></li>
+                                              </form>
                                             <% }%>
                                     <% } %>
-
-
                                 </ul>
                             </li>
                             <div>

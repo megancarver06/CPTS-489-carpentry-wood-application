@@ -10,16 +10,16 @@ function isLoggedIn(req, res, next) {
   res.redirect('/signin');
 }
 
-router.post('/signout', function (req, res) {
-  req.logout(function(err) {
-    if(err) {
-      console.log(err);
-      return next(err);
-    }
-    req.session.destroy();
-    res.redirect('/');
-  })
-});
+// router.post('/signout', function (req, res) {
+//   req.logout(function(err) {
+//     if(err) {
+//       console.log(err);
+//       return next(err);
+//     }
+//     req.session.destroy();
+//     res.redirect('/');
+//   })
+// });
 
 /* GET home page. */
 router.get('/', function(req, res, next){
