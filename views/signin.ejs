@@ -164,31 +164,32 @@
     <%- include('navbar'); %>
 
         <!--    ----- ADD NEW CONTENT HERE -----    -->
+
+        <% if (failed) { %>
+            <div class="alert alert-danger" role="alert">
+                <%= failed %>
+            </div>
+        <% } %>
         <div class="container form">
 
             <div style="float:left" class="form_element">
                 <h1>Sign in</h1>
             </div>
 
-<<<<<<< HEAD
-            <div style="float:right" class="form_element">
-                <a href="signup">Don't have an account? Sign up</a>
-=======
             <div style = "float:right" class = "form_element">
                 <a href = "signup">Don't have an account? Sign up</a>
->>>>>>> main
             </div>
-            <form method="post" action="/signin">
+            <form action = "/signin" method = "post">
                 <div style="clear:both" class="form_element">
-                    <label for="username">username</label>
-                    <input type="text" id="username" name="username" placeholder="Username">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Username" required>
                     <small id="username-description" class="form-text">We'll never share your username with anyone
                         else.</small>
                 </div>
 
                 <div class="form_element">
                     <label for="password">Password</label>
-                    <input type="text" id="password" name="password" placeholder="Password">
+                    <input type="text" id="password" name="password" placeholder="Password" required>
                 </div>
                 <div class="form_element">
                     <input type="submit" value="Sign in">

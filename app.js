@@ -3,11 +3,16 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-//const session = require('express-session');
 const sequelize = require('./db');
+const session = require('express-session');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 const Listing = require('./models/Listing');
 const Orders = require('./models/Orders');
 const User = require('./models/User');
+const crypto = require('crypto');
+const flash = require('connect-flash');
+
 
 var indexRouter = require('./routes/index');
 var aboutUsRouter = require('./routes/about_us');
@@ -39,6 +44,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({ secret: 'TheWoodWorks', resave: false, saveUninitialized: false })); // Need to change secret key
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
 app.use('/', indexRouter);
 app.use('/about_us', aboutUsRouter);
@@ -60,12 +69,12 @@ app.use('/storefront_info', storefrontInfoRouter);
 app.use('/storefront_shop', storefrontShopRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -76,17 +85,58 @@ app.use(function(err, req, res, next) {
 });
 
 async function setup() {
-  const meganadmin = await User.create({username: "meganadmin", password: "1234", usertype: "Admin", email: "megan.carver@wsu.edu"})
-  console.log("Megan Admin instance created");
-  const meganbuyer = await User.create({username: "meganbuyer", password: "1234", usertype: "Buyer", email: "megan.carver@wsu.edu"})
-  console.log("Megan Buyer instance created");
-  const meganseller = await User.create({username: "meganseller", password: "1234", usertype: "Seller", email: "megan.carver@wsu.edu", shopname: "Megan's Shop", shopdesc: "This is Megan's shop."})
-  console.log("Megan Seller instance created");
+  try {
+    // Generate a random salt
+    const salt = crypto.randomBytes(16).toString('hex');
+
+    // Hash the password using the salt
+    const hashPassword = (password) => {
+      return crypto.pbkdf2Sync(password, salt, 100000, 64, 'sha512').toString('hex');
+    };
+
+    // Create Megan Admin with hashed password and salt
+    const meganadminPassword = hashPassword("1234");
+    const meganadmin = await User.create({
+      username: "meganadmin",
+      password: meganadminPassword,
+      salt: salt, // Store the salt in the database
+      usertype: "Admin",
+      email: "megan.carver@wsu.edu"
+    });
+    console.log("Megan Admin instance created");
+
+    // Similarly, create Megan Buyer and Megan Seller with hashed passwords and salts
+    // Use the same salt for each user
+    // (In practice, you might want to generate a separate salt for each user)
+    const meganbuyerPassword = hashPassword("1234");
+    const meganbuyer = await User.create({
+      username: "meganbuyer",
+      password: meganbuyerPassword,
+      salt: salt,
+      usertype: "Buyer",
+      email: "megan.carver@wsu.edu"
+    });
+    console.log("Megan Buyer instance created");
+
+    const megansellerPassword = hashPassword("1234");
+    const meganseller = await User.create({
+      username: "meganseller",
+      password: megansellerPassword,
+      salt: salt,
+      usertype: "Seller",
+      email: "megan.carver@wsu.edu",
+      shopname: "Megan's Shop",
+      shopdesc: "This is Megan's shop."
+    });
+    console.log("Megan Seller instance created");
+  } catch (error) {
+    console.error("Error while setting up users:", error);
+  }
 }
 
 sequelize.sync({ force: true }).then(() => {
   console.log("Sequelize Sync Completed...")
-  setup().then(()=> console.log("Admin, Buyer, and Seller setup completed."));
+  setup().then(() => console.log("Admin, Buyer, and Seller setup completed."));
 })
 
 module.exports = app;
