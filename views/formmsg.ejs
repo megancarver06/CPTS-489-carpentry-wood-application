@@ -1,0 +1,10 @@
+<% if (locals.msg) {%>
+
+    <% if (msg === "invalidemail") { %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Enter a valid email address.
+            <p class="mb-0"><%=msg%></p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <% }%>
+      <% }%>
