@@ -3,6 +3,14 @@ var router = express.Router();
 const User = require('../models/User');
 var crypto = require('crypto');
 
+const sessionChecker = (req, res, next) => {
+  if (req.session.user) {
+    res.redirect('/profile');
+  } else {
+    next();
+  }
+}
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('signup');
@@ -10,7 +18,7 @@ router.get('/', function (req, res, next) {
 
 router.post('/', async function (req, res, next) {
   // Generate salt
-  let salt = crypto.randomBytes(16);
+  let salt = crypto.randomBytes(16).toString('hex'); // Convert salt to string
 
   // Derive key asynchronously
   crypto.pbkdf2(req.body.password, salt, 100000, 64, 'sha512', async (err, hashedPassword) => {
@@ -20,11 +28,18 @@ router.post('/', async function (req, res, next) {
     }
 
     try {
-      const { username, password, usertype, email, shopname, shopdesc } = req.body;
+      const { username, usertype, email, shopname, shopdesc } = req.body;
 
-
-      // Create user with derivedKey
-      const user = await User.create({ username, password: hashedPassword, usertype, email, shopname, shopdesc });
+      // Create user with hashedPassword and salt
+      const user = await User.create({ 
+        username, 
+        password: hashedPassword.toString('hex'), // Convert hashedPassword to string
+        salt, // Store the salt
+        usertype, 
+        email, 
+        shopname, 
+        shopdesc 
+      });
       res.redirect("/signin?msg=created");
 
     } catch (error) {
@@ -35,5 +50,6 @@ router.post('/', async function (req, res, next) {
   });
 
 });
+
 
 module.exports = router;
