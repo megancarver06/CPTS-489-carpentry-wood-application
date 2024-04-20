@@ -4,9 +4,6 @@ const User = require('../models/User');
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
-  //const buyers = await Buyer.findAll();
-  //const sellers = await Seller.findAll();
-  //res.render('admin_users', {buyers, sellers});
   const users = await User.findAll();
   res.render('admin_users', { users });
 });
