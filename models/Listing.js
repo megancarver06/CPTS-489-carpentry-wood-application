@@ -36,7 +36,7 @@ Listing.init({
     allowNull: false
   },
   listingtitle: {
-    type: DataTypes.TEXT,
+    type: DataTypes.STRING,
     allowNull: false
   },
   listingprice: {
@@ -44,23 +44,31 @@ Listing.init({
     allowNull: false
   },
   listingdesc: {
-    type: DataTypes.TEXT,
+    type: DataTypes.STRING,
     allowNull: false
   },
   listingwidth: {
-    type: DataTypes.TEXT,
+    type: DataTypes.STRING,
     allowNull: false
   },
   listingheight: {
-    type: DataTypes.TEXT,
+    type: DataTypes.STRING,
     allowNull: false
   },
   listingdepth: {
-    type: DataTypes.TEXT,
+    type: DataTypes.STRING,
     allowNull: false
   },
   listingseller: {
-    type: DataTypes.TEXT,
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  spacecategory: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  productcategory: {
+    type: DataTypes.STRING,
     allowNull: false
   }
 }, {
