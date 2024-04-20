@@ -68,6 +68,13 @@ app.use('/storefront_contact', storefrontContactRouter);
 app.use('/storefront_info', storefrontInfoRouter);
 app.use('/storefront_shop', storefrontShopRouter);
 
+// Middleware function to make user object available globally
+app.use((req, res, next) => {
+  res.locals.user = req.user; // Assuming user object is attached to req during authentication
+  next();
+});
+
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

@@ -13,7 +13,23 @@ const sessionChecker = (req, res, next) => {
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('signup');
+  const failed = req.query.failed;
+
+  let msg = "";
+  switch (failed) {
+    case "1":
+      msg = "Something went wrong. Please try again.";
+      break;
+    case "2":
+      msg = "Username already exists. Please try again.";
+      break;
+    case "3":
+      msg = "Failed to login. Please try again.";
+      break;
+    default:
+      break;
+  }
+  res.render('signup', {failed: failed, msg: msg});
 });
 
 router.post('/', async function (req, res, next) {

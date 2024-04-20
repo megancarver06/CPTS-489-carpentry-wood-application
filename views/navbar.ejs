@@ -127,17 +127,27 @@
                                 <a href="#">Profile</a>
                                 <ul>
                                     <!-- ADD LOGIC FOR USERS NOT SIGNED IN -->
-                                    <li><a href="/signin">Sign In</a></li>
+                                    <% if (!user) { %>
+                                        <li><a href="/signin">Sign In</a></li>
+                                    <% } %>
+
                                     <!-- ADD LOGIC FOR BUYERS AND SELLERS -->
-                                    <li><a href="/profile">My Profile</a></li>
-                                    <!-- ADD LOGIC FOR BUYERS AND SELLERS -->
-                                    <li><a href="/shopping_cart">My Cart</a></li>
-                                    <!-- ADD LOGIC FOR BUYERS AND SELLERS -->
-                                    <li><a href="/order_history">Order History</a></li>
-                                    <!-- ADD LOGIC FOR BUYERS AND SELLERS AND ADMIN-->
-                                    <li><a href="/index">Sign Out</a></li>
+                                    <% if (user) { %> 
+                                        <% if (user.usertype === 'Buyer' || user.usertype === 'Seller') { %>
+                                            <li><a href="/profile">My Profile</a></li>
+                                            <li><a href="/shopping_cart">My Cart</a></li>
+                                            <li><a href="/order_history">Order History</a></li>
+                                            <% } %>
+                                        <% if (user.usertype === 'Buyer' || user.usertype === 'Seller') { %>
+                                            <li><a href="/signout">Sign Out</a></li>
+                                            <% }%>
+                                    <% } %>
+
+
                                 </ul>
                             </li>
+                            <div>
+                            </div>
                         </ul>
                     </nav>
                 </div>

@@ -192,6 +192,9 @@
     <%- include('navbar'); %>
 
         <!--    ----- ADD NEW CONTENT HERE -----    -->
+        <% if (failed) { %>
+            <h4> Error: <%msg%></h4>
+            <% } %>
         <div class="container form">
 
             <div style="float:left" class="form_element">
