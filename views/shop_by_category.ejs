@@ -153,8 +153,7 @@
             color: #4d243d;
         }
         .listing {
-            border: 2px solid #cac2b5;
-            border-radius: 10px;
+            padding: 15px;
         }
         .listing_description {
             padding-top: 15px;
@@ -168,28 +167,23 @@
         <div class="row row-cols-1 title">
             <h1>Listings</h1>
         </div>
-        <div class="row row-cols-3">
+        <div class="row row-cols-4">
             <% for (listing of listings) { %>
                 <div>
-                    <div class="row row-cols-2 listing">
+                    <div class="row listing">
                         <div>
+                            <a href= <%="/product_details/"+listing.listingid %>><img class="listing_image" src="/images/Wireframe Placeholder Images/dresser.jpeg"></a>
+                        </div>
+                        <div class="row">
                             <div>
-                                <a href= <%="/product_details/"+listing.listingid %>><img class="listing_image" src="/images/Wireframe Placeholder Images/dresser.jpeg"></a>
+                                <p style="font-weight: bold; font-size: 20;"><%= listing.listingtitle %></p>
+                                <p><strong><%=listing.listingprice %></strong></p>
                             </div>
-                            <div>
-                                <form action= <%= "/admin_listings/delete/"+listing.listingid %> method="get">
-                                    <input type="submit" value="Remove Listing">
+                            <div class="cart-button">
+                                <form action="">
+                                    <input type="submit" value="Add to cart">
                                 </form>
                             </div>
-                        </div>
-                        <div class="listing_description">
-                                <p><strong><%= listing.listingtitle %></strong></p>
-                                <p><%=listing.listingprice %></p>
-                                <p><%=listing.listingdesc %></p>
-                                <p><%= "Width: "+listing.listingwidth %></p>
-                                <p><%= "Height: "+listing.listingheight %></p>
-                                <p><%= "Depth: "+listing.listingdepth %></p>
-                                <p><strong><%= "Sold by: "+listing.listingseller %></strong></p>
                         </div>
                     </div>
                 </div>
