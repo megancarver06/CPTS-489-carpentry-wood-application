@@ -1,2 +1,3 @@
 node_modules
 database/thewoodworksdb1.sqlite
+.DS_Store

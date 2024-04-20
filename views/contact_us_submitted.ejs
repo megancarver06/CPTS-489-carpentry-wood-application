@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TheWoodWorks | Contact Us</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <style>
@@ -98,6 +98,9 @@
         h2 {
             color: #cac2b5;
         }
+        h3 {
+            color: #4d243d;
+        }
         .form {
             background-color: #4d243d;
             padding: 40px;
@@ -119,7 +122,7 @@
             font-size: 16px;
             padding-bottom: 5px;
         }
-        input[type=submit] {
+        .faqbutton {
             background-color: #d0a98f;
             color: #4d243d;
             padding: 12px 20px;
@@ -127,61 +130,27 @@
             border-radius: 5px;
             cursor: pointer;
         }
-        input[type=submit]:hover {
+        .faqbutton:hover {
             background-color: #ecdcc9;
+        }
+       .faqbutton a {
+            text-decoration: none;
+            color: #4d243d;
         }
     </style>
 
     <%- include('navbar'); %>
 
     <!--    ----- ADD NEW CONTENT HERE -----    -->
-    <div class="container form">
-        <form action="/contact_us/submit" method="post">
+    <div class="container">
+            <h1>Thank you for contacting us!</h1>
+            <p style="font-weight: bold; color: #4d243d; font-size: 24px;">Your message has been recieved by our team. You will recieve a response from one of our team members in 2-3 business days.</p>
+            <p>While you wait, you can check our FAQ page for answers to our frequently asked questions.</p>
             <div class="form_element">
-                <h1>Contact Us</h1>
+                <button class="faqbutton"><a href="/faq">Frequently Asked Questions</a></button>
             </div>
-
-            <div class="form_element">
-                <label for="firstname">First Name</label>
-                <input type="text" id="firstname" name="firstname" placeholder="First Name">
-            </div>
-
-            <div class="form_element">
-                <label for="lastname">Last Name</label>
-                <input type="text" id="lastname" name="lastname" placeholder="Last Name">
-            </div>
-
-            <div class="form_element">
-                <label for="email">Email</label>
-                <input type="text" id="email" name="email" placeholder="Email">
-            </div>
-
-            <div class="form_element">
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" placeholder="What are you contacting about?">
-            </div>
-
-            <div class="form_element">
-                <div>
-                    <label for="inquiry">What can we help you with?</label>
-                </div>
-                <div>
-                    <textarea id="inquiry" name="inquiry" placeholder="Tell us what we can help you with." style="height:200px"></textarea>
-                </div>
-            </div>
-
-            <div class="form_element">
-                <input type="submit" value="Submit Inquiry">
-            </div>
-        </form>
     </div>
 
-    <%- include('formmsg'); %>
-
-    <div id="footer"></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
