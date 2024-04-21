@@ -123,7 +123,7 @@ async function setup() {
       password: meganbuyerPassword,
       salt: salt,
       usertype: "Buyer",
-      email: "megan.carver@wsu.edu"
+      email: "megan.carver@wsu.edu",
     });
     console.log("Megan Buyer instance created");
 
