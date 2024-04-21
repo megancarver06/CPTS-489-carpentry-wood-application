@@ -3,7 +3,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('contact_us');
+  const user = req.user;
+  res.render('contact_us', { user: user });
 });
 
 router.post('/submit', function(req, res, next) {

@@ -45,10 +45,14 @@ router.post('/', passport.authenticate('local', {
   failureFlash: true
 }));
 
+
 /* GET signin page. */
 router.get('/', function (req, res, next) {
   const failed = req.query.failed;
-  res.render('signin', { failed: failed });
+  const user = req.user;
+  res.render('signin', { failed: failed, user: user }); // Combine failed and user into a single object
 });
+
+
 
 module.exports = router;

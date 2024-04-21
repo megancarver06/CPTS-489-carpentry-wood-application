@@ -4,8 +4,9 @@ const Listing = require('../models/Listing');
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
+  const user = req.user;
   const listings = await Listing.findAll();
-  res.render('admin_listings', {listings});
+  res.render('admin_listings', {listings, user});
 });
 
 router.get("/delete/:listingid", async function(req, res, next) {

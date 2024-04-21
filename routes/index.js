@@ -2,9 +2,29 @@ var express = require('express');
 var router = express.Router();
 const Listing = require('../models/Listing');
 
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/signin');
+}
+
+// router.post('/signout', function (req, res) {
+//   req.logout(function(err) {
+//     if(err) {
+//       console.log(err);
+//       return next(err);
+//     }
+//     req.session.destroy();
+//     res.redirect('/');
+//   })
+// });
+
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index');
+router.get('/', function(req, res, next){
+  console.log("User:", req.user);
+  res.render('index', {user: req.user});
 });
 
 router.get('/index/livingroom/', async function(req, res, next) {
