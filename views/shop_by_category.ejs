@@ -180,7 +180,7 @@
                                 <p><strong><%=listing.listingprice %></strong></p>
                             </div>
                             <div class="cart-button">
-                                <form action="">
+                                <form action=<%= "/product_details/addtocart/"+listing.listingid %> method="post">
                                     <input type="submit" value="Add to cart">
                                 </form>
                             </div>

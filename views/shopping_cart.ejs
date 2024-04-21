@@ -177,14 +177,15 @@
         <div class="row">
             <div class="row col">
                 <h1 class="h1top">Shopping Cart</h1>
+                <% for (listing of listings) { %>
                 <div class="row cartitem">
                     <div class="col-2">
-                        <img src="Images/Wireframe Placeholder Images/dresser.jpeg" style="max-height:200px;">
+                        <img src="/Images/Wireframe Placeholder Images/dresser.jpeg" style="max-height:200px;">
                     </div>
                     <div class="col-9">
                         <div class="row">
                             <div class="col-9">
-                                <h2>Bedroom Dresser</h2>
+                                <h2><%= listing.listingtitle %></h2>
                             </div>
                             <div class="col-2" style="display: inline-flex;">
                                 <button  class="quantitybutton"
@@ -199,67 +200,14 @@
                                 </button>
                             </div>  
                             <div class="col-1">
-                                <h6>$399.99</h6>
+                                <h6><%= listing.listingprice %></h6>
                             </div>
                         </div>
                     </div>
                 </div>  
-                <hr>
-                <div class="row cartitem">
-                    <div class="col-2">
-                        <img src="Images/Wireframe Placeholder Images/dresser.jpeg" style="max-height:200px;">
-                    </div>
-                    <div class="col-9">
-                        <div class="row">
-                            <div class="col-9">
-                                <h2>Bedroom Dresser</h2>
-                            </div>
-                            <div class="col-2" style="display: inline-flex;">
-                                <button  class="quantitybutton"
-                                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                                    <i>-</i>
-                                </button>
+                <% } %>
+
                 
-                                <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control form-control-sm"/>
-                
-                                <button class="quantitybutton" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                                    <i>+</i>
-                                </button>
-                            </div>  
-                            <div class="col-1">
-                                <h6>$399.99</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row cartitem">
-                    <div class="col-2">
-                        <img src="Images/Wireframe Placeholder Images/dresser.jpeg" style="max-height:200px;">
-                    </div>
-                    <div class="col-9">
-                        <div class="row">
-                            <div class="col-9">
-                                <h2>Bedroom Dresser</h2>
-                            </div>
-                            <div class="col-2" style="display: inline-flex;">
-                                <button class="quantitybutton"
-                                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                                    <i>-</i>
-                                </button>
-                
-                                <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control form-control-sm"/>
-                
-                                <button class="quantitybutton" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                                    <i>+</i>
-                                </button>
-                            </div>  
-                            <div class="col-1">
-                                <h6>$399.99</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
                 <div class="row">
                     <p style="font-style:italic; margin: 0px; padding: 0px; text-align: right;">Cost of tax and shipping will be calculated during checkout</p>
                 </div>

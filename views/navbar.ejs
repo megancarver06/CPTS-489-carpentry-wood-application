@@ -17,7 +17,7 @@
             position: fixed;
             width: 100%;
             top: 0;
-            height : 160px;
+            height : 180px;
         }
         #header_blank {
             height : 200px;
@@ -80,6 +80,9 @@
             display: flex;
             justify-content: flex-end; 
         }
+        #menu-link {
+            padding-bottom: 10px;
+        }
         p {
             color: #4d243d;
         }
@@ -88,6 +91,12 @@
         }
         h2 {
             color: #cac2b5;
+        }
+        .user-greeting {
+            text-align: right;
+        }
+        .menu-links {
+            text-align: right; 
         }
  </style>
     <div id="header">
@@ -98,46 +107,74 @@
                 </div>
                 <div class="menu">
                     <nav>
-                        <ul>
-                            <!-- ADD LOGIC FOR ALL USERS EXCEPT ADMIN -->
-                            <li><a id="menu-link" href="/">Shop</a></li>
-                            <!-- ADD LOGIC FOR ADMIN USERS -->
-                            <li><a id="menu-link" href="/admin_users">Users</a></li>
-                            <!-- ADD LOGIC FOR ADMIN USERS -->
-                            <li><a id="menu-link" href="/admin_listings">Listings</a></li>
-                            <!-- ADD LOGIC FOR ALL USERS EXCEPT ADMIN -->
-                            <li>
-                                <a id="menu-link" href="#">About</a>
-                                <ul>
-                                    <li><a href="/about_us">About Us</a></li>
-                                    <li><a href="/faq">FAQs</a></li>
-                                    <li><a href="/contact_us">Contact Us</a></li>
-                                </ul>
-                            </li>
-                            <!-- ADD LOGIC FOR SELLERS -->
-                            <li>
-                                <a id="menu-link" href="#">My Store</a>
-                                <ul>
-                                    <li><a href="/storefront_shop">My Storefront</a></li>
-                                    <li><a href="/shop_inventory">My Inventory</a></li>
-                                    <li><a href="/shop_orders">Store Orders</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Profile</a>
-                                <ul>
-                                    <!-- ADD LOGIC FOR USERS NOT SIGNED IN -->
-                                    <li><a href="/signin">Sign In</a></li>
-                                    <!-- ADD LOGIC FOR BUYERS AND SELLERS -->
-                                    <li><a href="/profile">My Profile</a></li>
-                                    <!-- ADD LOGIC FOR BUYERS AND SELLERS -->
-                                    <li><a href="/shopping_cart">My Cart</a></li>
-                                    <!-- ADD LOGIC FOR BUYERS AND SELLERS -->
-                                    <li><a href="/order_history">Order History</a></li>
-                                    <!-- ADD LOGIC FOR BUYERS AND SELLERS AND ADMIN-->
-                                    <li><a href="/index">Sign Out</a></li>
-                                </ul>
-                            </li>
+                        <div class="user-greeting">
+                            <% if (!user) { %>
+                                <p style="font-size: 18px; font-weight: bold;">Welcome to TheWoodWorks Marketplace</p>
+                            <% } %>
+                            <% if (user) { %>
+                                <p style="font-size: 18px; font-weight: bold;">Hello <%= user.username %>!</p>
+                            <% } %>
+                        </div>
+                        <div class="menu-links">
+                            <ul>
+                                <!-- ADD LOGIC FOR ALL USERS EXCEPT ADMIN -->
+                                <% if (!user || (user && !(user.usertype === 'Admin'))) { %>
+                                <li><a id="menu-link" href="/">Shop</a></li>
+                                <% } %>
+                                <!-- ADD LOGIC FOR ADMIN USERS -->
+                                <% if (user && user.usertype=== 'Admin') { %>
+                                <li><a id="menu-link" href="/admin_users">Users</a></li>
+                                <!-- ADD LOGIC FOR ADMIN USERS -->
+                                <li><a id="menu-link" href="/admin_listings">Listings</a></li>
+                                <% } %>
+                                <!-- ADD LOGIC FOR ALL USERS EXCEPT ADMIN -->
+                                <% if (!user || (user && !(user.usertype === 'Admin'))) { %>
+                                <li>
+                                    <a id="menu-link" href="#">About</a>
+                                    <ul>
+                                        <li><a href="/about_us">About Us</a></li>
+                                        <li><a href="/faq">FAQs</a></li>
+                                        <li><a href="/contact_us">Contact Us</a></li>
+                                    </ul>
+                                </li>
+                                <% } %>
+                                <!-- ADD LOGIC FOR SELLERS -->
+                                <% if (user && user.usertype === 'Seller') { %>
+                                <li>
+                                    <a id="menu-link" href="#">My Store</a>
+                                    <ul>
+                                        <li><a href="/storefront_shop">My Storefront</a></li>
+                                        <li><a href="/shop_inventory">My Inventory</a></li>
+                                        <li><a href="/shop_orders">Store Orders</a></li>
+                                    </ul>
+                                </li>
+                                <% } %>
+                                <li>
+                                    <a href="#">Profile</a>
+                                    <ul>
+                                        <!-- ADD LOGIC FOR USERS NOT SIGNED IN -->
+                                        <% if (!user) { %>
+                                            <li><a href="/signin">Sign In</a></li>
+                                        <% } %>
+    
+                                        <!-- ADD LOGIC FOR BUYERS AND SELLERS -->
+                                        <% if (user) { %> 
+                                            <% if (user.usertype === 'Buyer' || user.usertype === 'Seller') { %>
+                                                <li><a href="/profile">My Profile</a></li>
+                                                <li><a href="/shopping_cart">My Cart</a></li>
+                                                <li><a href="/order_history">Order History</a></li>
+                                                <% } %>
+                                            <% if (user) { %>
+                                                <form action="/signout" method="post">
+                                                    <li><button type="submit" class = "btn btn-link">Sign Out</button></li>
+                                                  </form>
+                                                <% }%>
+                                        <% } %>
+                                    </ul>
+                                </li>
+                        </div>
+                            <div>
+                            </div>
                         </ul>
                     </nav>
                 </div>

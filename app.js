@@ -32,6 +32,7 @@ var signUpRouter = require('./routes/signup');
 var storefrontContactRouter = require('./routes/storefront_contact');
 var storefrontInfoRouter = require('./routes/storefront_info.js');
 var storefrontShopRouter = require('./routes/storefront_shop');
+var signoutRouter = require('./routes/signout');
 
 var app = express();
 
@@ -67,6 +68,14 @@ app.use('/signup', signUpRouter);
 app.use('/storefront_contact', storefrontContactRouter);
 app.use('/storefront_info', storefrontInfoRouter);
 app.use('/storefront_shop', storefrontShopRouter);
+app.use('/signout', signoutRouter);
+
+// Middleware function to make user object available globally
+app.use((req, res, next) => {
+  res.locals.user = req.user; // Assuming user object is attached to req during authentication
+  next();
+});
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -114,7 +123,7 @@ async function setup() {
       password: meganbuyerPassword,
       salt: salt,
       usertype: "Buyer",
-      email: "megan.carver@wsu.edu"
+      email: "megan.carver@wsu.edu",
     });
     console.log("Megan Buyer instance created");
 
