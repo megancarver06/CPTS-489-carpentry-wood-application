@@ -1,6 +1,6 @@
 const { STRING } = require('mysql/lib/protocol/constants/types')
 const sequelize = require('../db')
-const { Model, DataTypes } = require('sequelize')
+const { Model, DataTypes, Sequelize } = require('sequelize')
 
 class User extends Model {
     // static async findUser(username, password) {
@@ -57,6 +57,10 @@ User.init({
     unique: true
   },
   shopdesc : {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
+  cart : {
     type: DataTypes.STRING,
     allowNull: true
   }
