@@ -174,10 +174,10 @@
                     <div class="row row-cols-2 listing">
                         <div>
                             <div>
-                                <a href= <%="/product_details/"+listing.listingid %>><img class="listing_image" src="/images/Wireframe Placeholder Images/dresser.jpeg"></a>
+                                <a href= <%="/product_details/"+listing.id %>><img class="listing_image" src="/images/Wireframe Placeholder Images/dresser.jpeg"></a>
                             </div>
                             <div>
-                                <form action= <%= "/admin_listings/delete/"+listing.listingid %> method="get">
+                                <form action= <%= "/admin_listings/delete/"+listing.id %> method="get">
                                     <input type="submit" value="Remove Listing">
                                 </form>
                             </div>

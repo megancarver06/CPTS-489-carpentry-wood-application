@@ -2,9 +2,9 @@ const sequelize = require('../db')
 const { Model, DataTypes } = require('sequelize')
 
 class Listing extends Model {
-    static async findListing(listingid) {
+    static async findListing(id) {
         try {
-            const listing = await Listing.findByPk(listingid)
+            const listing = await Listing.findByPk(id)
             return listing ? listing : null;
         } catch(error) {
             console.log(error)
@@ -14,11 +14,6 @@ class Listing extends Model {
 }
 
 Listing.init({
-  listingid: {
-    type: DataTypes.STRING,
-    primaryKey: true,
-    allowNull: false
-  },
   image1: {
     type: DataTypes.STRING,
     allowNull: false

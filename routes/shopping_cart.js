@@ -15,7 +15,7 @@ router.get('/', async function(req, res, next) {
 
   const listings = await Listing.findAll({
     where: {
-      listingid: cart
+      id: cart
     }
   });
 

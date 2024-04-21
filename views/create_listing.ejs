@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TheWoodWorks | Marketplace</title>
+    <title>TheWoodWorks | Contact Us</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <style>
@@ -98,99 +97,76 @@
         h2 {
             color: #cac2b5;
         }
-        .title {
-            text-align: center;
-            padding: 20px;
+        .form {
+            background-color: #4d243d;
+            padding: 40px;
+            border-radius: 10px;
+        }
+        .form_element {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: #ecdcc9;
+            border-radius: 5px;
+            border: 2px solid #cac2b5;
+        }
+        label {
+            color: #d0a98f;
+            font-size: 16px;
+            padding-bottom: 5px;
         }
         input[type=submit] {
             background-color: #d0a98f;
             color: #4d243d;
-            padding: 5px;
+            padding: 12px 20px;
             border: 2px solid #cac2b5;
             border-radius: 5px;
             cursor: pointer;
-            width: 100%
         }
         input[type=submit]:hover {
             background-color: #ecdcc9;
-        }
-        table {
-            width: 100%;
-            border: 1px solid #cac2b5;
-            margin-bottom: 40px;
-            margin-top: 40px;
-        }
-        td, th {
-            text-align: left;
-            padding: 8px;
-            color: #4d243d;
-        }
-        tr:nth-child(even) {
-            background-color:#cac2b5;
-        }
-        input[type=text], select, textarea {
-            width: 20%;
-            padding: 5px;
-            background-color: #ecdcc9;
-            border-radius: 10px;
-            border: 2px solid #cac2b5;
-        }
-        .form_element {
-            text-align: right;
-            padding-bottom: 40px;
-        }
-        .listing_image {
-            width: 100%; 
-            border-radius: 5px;
-            margin-top: 15px;
-            margin-bottom: 10px;
-        }
-        .listing_image:hover {
-            opacity: 80%;
-        }
-        ul li {
-            font-size: 12px;
-            color: #4d243d;
-        }
-        .listing {
-            padding: 15px;
-        }
-        .listing_description {
-            padding-top: 15px;
         }
     </style>
 
     <%- include('navbar'); %>
 
     <!--    ----- ADD NEW CONTENT HERE -----    -->
-    <div class="container">
-        <div class="row row-cols-1 title">
-            <h1>Listings</h1>
-        </div>
-        <div class="row row-cols-4">
-            <% for (listing of listings) { %>
+    <div class="container form">
+        <form action="/create_listing/submit" method="post">
+            <div class="form_element">
+                <h1>Create New Listing</h1>
+            </div>
+
+            <div class="form_element">
+                <label for="listingtitle">Listing Title</label>
+                <input type="text" id="listingtitle" name="listingtitle" placeholder="Name Your Listing">
+            </div>
+
+            <div class="form_element">
+                <label for="listingprice">Listing Price</label>
+                <input type="text" id="listingprice" name="listingprice" placeholder="$00.00">
+            </div>
+
+            <div class="form_element">
                 <div>
-                    <div class="row listing">
-                        <div>
-                            <a href= <%="/product_details/"+listing.id %>><img class="listing_image" src="/images/Wireframe Placeholder Images/dresser.jpeg"></a>
-                        </div>
-                        <div class="row">
-                            <div>
-                                <p style="font-weight: bold; font-size: 20;"><%= listing.listingtitle %></p>
-                                <p><strong><%=listing.listingprice %></strong></p>
-                            </div>
-                            <div class="cart-button">
-                                <form action=<%= "/product_details/addtocart/"+listing.id %> method="post">
-                                    <input type="submit" value="Add to cart">
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                    <label for="listingdesc">Listing Description</label>
                 </div>
-            <% } %>
-            
-        </div>
+                <div>
+                    <textarea id="listingdesc" name="listingdesc" placeholder="Give a brief description about your product." style="height:200px"></textarea>
+                </div>
+            </div>
+
+            <div class="form_element">
+                <input type="submit" value="Create Listing">
+            </div>
+        </form>
     </div>
+
+    <%- include('formmsg'); %>
+
     <div id="footer"></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
