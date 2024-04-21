@@ -233,7 +233,7 @@
                 <h1 class="product_name"><%= listing.listingtitle %></h1>
                 <h1><%= listing.listingprice %></h1>
                 <p class="product_keywords"><%= listing.listingdesc %></p>
-                <form action=<%= "/product_details/addtocart/"+listing.listingid %> method="post">
+                <form action=<%= "/product_details/addtocart/"+listing.id %> method="post">
                     <div class="form_element">
                         <input type="submit" value="Add to Cart">
                     </div>

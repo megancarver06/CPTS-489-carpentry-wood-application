@@ -136,6 +136,23 @@
         input[type=submit]:hover {
             background-color: #ecdcc9;
         }
+        .new_listing_button {
+            background-color: #d0a98f;
+            color: #4d243d;
+            padding: 12px 20px;
+            border: 2px solid #cac2b5;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+        }
+        .new_listing_button:hover {
+            background-color: #ecdcc9;
+        }
+        .new_listing_button a {
+            text-decoration: none;
+            color: #4d243d;
+        }
     </style>
 
     <%- include('navbar'); %>
@@ -150,7 +167,7 @@
                     </div>
                     <div class="col-2">
                         <div class="form_element">
-                            <input type="submit" value="+ Add New Listing">
+                            <button class="new_listing_button"><a href="/create_listing">+ Add New Listing</a></button>
                         </div>
                     </div>
                 </div>
