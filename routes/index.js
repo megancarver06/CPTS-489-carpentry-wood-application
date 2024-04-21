@@ -28,12 +28,13 @@ router.get('/', function(req, res, next){
 });
 
 router.get('/index/livingroom/', async function(req, res, next) {
+  const user = req.user;
   const listings = await Listing.findAll({
     where: {
       spacecategory: "living room"
     }
   });
-  res.render('shop_by_category', {listings});
+  res.render('shop_by_category', {listings, user});
 });
 
 router.get('/index/diningroom/', async function(req, res, next) {
