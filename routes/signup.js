@@ -14,6 +14,7 @@ const sessionChecker = (req, res, next) => {
 /* GET home page. */
 router.get('/', function (req, res, next) {
   const failed = req.query.failed;
+  const user = req.session.user;
 
   let msg = "";
   switch (failed) {
@@ -29,7 +30,7 @@ router.get('/', function (req, res, next) {
     default:
       break;
   }
-  res.render('signup', {failed: failed, msg: msg});
+  res.render('signup', {failed: failed, msg: msg, user: user});
 });
 
 router.post('/', async function (req, res, next) {
