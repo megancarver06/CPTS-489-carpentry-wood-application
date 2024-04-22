@@ -25,6 +25,19 @@
         #header_blank {
             height : 160px;
         }
+        
+        a:link { 
+            text-decoration: none; 
+        } 
+        a:visited { 
+            text-decoration: none; 
+        } 
+        a:hover { 
+            text-decoration: none; 
+        } 
+        a:active { 
+            text-decoration: none; 
+        }
 
         #footer {
             margin-top: 20px;
@@ -105,10 +118,6 @@
             margin-top: 50px;
             display: flex;
             justify-content: flex-end; 
-        }
-
-        a {
-            text-decoration: none;
         }
 
         p {
@@ -202,6 +211,18 @@
         .shop_image:hover {
             opacity: 80%;
         }
+
+        .producttag-item {
+            text-align: center;
+            color: white;
+            font-size: small;
+            margin: 5px;
+            padding: 5px;
+            border-style: solid;
+            border-color: #4d243d;
+            border-radius: 15px;
+            background-color: #4d243d;
+        }
     </style>
 
     <%- include('navbar'); %>
@@ -229,9 +250,9 @@
                     <div class="shopmenu">
                         <nav>
                             <ul>
-                                <li><a id="menu-link" href="storefront_shop" class="shopmenuitem" style="background-color: #ecdcc9;">Shop</a></li>
-                                <li><a id="menu-link" href="storefront_info" class="shopmenuitem">About the Artist</a></li>
-                                <li><a id="menu-link" href="storefront_contact" class="shopmenuitem">Contact</a></li>
+                                <li><a id="menu-link" href="/storefront_shop" class="shopmenuitem" style="background-color: #ecdcc9;">Shop</a></li>
+                                <li><a id="menu-link" href="/storefront_info" class="shopmenuitem">About the Artist</a></li>
+                                <li><a id="menu-link" href="/storefront_contact" class="shopmenuitem">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -242,106 +263,17 @@
                     </div>
                 </div>
                 <div class="row row-cols-4">
-                    <div>
-                        <a href="product_details.html">
-                            <img class="shop_image" src="Images/Wireframe Placeholder Images/dresser.jpeg">
-                            <p class="shopitem">Bedroom Dresser</p></a>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star"></span>
-                            <p>(221 Reviews)</p>
-                    </div>
-                    <div>
-                        <a href="product_details.html">
-                            <img class="shop_image" src="Images/Wireframe Placeholder Images/dresser.jpeg">
-                            <p class="shopitem">Bedroom Dresser</p></a>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star"></span>
-                            <p>(158 Reviews)</p>
-                    </div>
-                    <div>
-                        <a href="product_details.html">
-                            <img class="shop_image" src="Images/Wireframe Placeholder Images/dresser.jpeg">
-                            <p class="shopitem">Bedroom Dresser</p></a>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star"></span>
-                            <p>(456 Reviews)</p>
-                    </div>
-                    <div>
-                        <a href="product_details.html">
-                            <img class="shop_image" src="Images/Wireframe Placeholder Images/dresser.jpeg">
-                            <p class="shopitem">Bedroom Dresser</p></a>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star starrating"></span>
-                            <p>(777 Reviews)</p>
-                    </div>
-                    <div>
-                        <a href="product_details.html">
-                            <img class="shop_image" src="Images/Wireframe Placeholder Images/dresser.jpeg">
-                            <p class="shopitem">Bedroom Dresser</p></a>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <p>(158 Reviews)</p>
-                    </div>
-                    <div>
-                        <a href="product_details.html">
-                            <img class="shop_image" src="Images/Wireframe Placeholder Images/dresser.jpeg">
-                            <p class="shopitem">Bedroom Dresser</p></a>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <p>(5 Reviews)</p>
-                    </div>
-                    <div>
-                        <a href="product_details.html">
-                            <img class="shop_image" src="Images/Wireframe Placeholder Images/dresser.jpeg">
-                            <p class="shopitem">Bedroom Dresser</p></a>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star"></span>
-                            <p>(456 Reviews)</p>
-                    </div>
-                    <div>
-                        <a href="product_details.html">
-                            <img class="shop_image" src="Images/Wireframe Placeholder Images/dresser.jpeg">
-                            <p class="shopitem">Bedroom Dresser</p></a>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star"></span>
-                            <p>(24 Reviews)</p>
-                    </div>
-                    <div>
-                        <a href="product_details.html">
-                            <img class="shop_image" src="Images/Wireframe Placeholder Images/dresser.jpeg">
-                            <p class="shopitem">Bedroom Dresser</p></a>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star starrating"></span>
-                            <span class="fa fa-star"></span>
-                            <p>(96 Reviews)</p>
-                    </div>
-
+                    <% for(listing of listings) { %>
+                        <div>
+                            <a href="product_details">
+                                <img class="shop_image" src="Images/Wireframe Placeholder Images/dresser.jpeg">
+                                <p class="shopitem" style="text-decoration: none;"><%= listing.listingtitle %></p></a>
+                                <div style="display: inline-flex;">
+                                    <p class="producttag-item"> <%= listing.productcategory %> </p>
+                                    <p class="producttag-item"> <%= listing.spacecategory %></p>
+                                </div>
+                        </div>
+                    <% } %>
                 </div>
             </div>
         </div>
