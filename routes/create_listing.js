@@ -22,10 +22,10 @@ router.post("/create", async function (req, res, next) {
         listingdepth: req.body.listingdepth,
         spacecategory: req.body.spacecategory,
         productcategory: req.body.productcategory,
-        image1: "/",
-        image2: "/",
-        image3: "/",
-        image4: "/",
+        image1: req.body.image1,
+        image2: req.body.image1,
+        image3: req.body.image1,
+        image4: req.body.image1,
         listingseller: shopname
       });
       res.redirect("/shop_inventory?msg=success&listingtitle=" + req.body.listingtitle);
