@@ -26,6 +26,16 @@ class User extends Model {
             return null
         }
     }
+
+    static async getSeller(shopname) {
+      try {
+        const user = await User.findOne({ where: { shopname: shopname } });
+        return user ? user : null;
+      } catch(error) {
+        console.log(error)
+        return null
+      }
+    }
 }
 
 User.init({

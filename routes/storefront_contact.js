@@ -2,13 +2,15 @@ var express = require('express');
 var router = express.Router();
 
 /* GET Storefront contact page. */
-router.get('/', function(req, res, next) {
+router.get('/:shopname', function(req, res, next) {
   const user = req.user;
-  res.render('storefront_contact', { user: user });
+  shopname = req.params.shopname;
+  res.render('storefront_contact', { user: user, shopname} );
 });
 
 /* POST user's contact form to seller. */
-router.post('/submit', function(req, res, next) {
+router.post('/:shopname/submit', function(req, res, next) {
+  shopname = req.params.shopname;
   const user = req.user;
   const email = req.body.email;
   const subject = req.body.subject;
@@ -18,7 +20,7 @@ router.post('/submit', function(req, res, next) {
     res.redirect("/storefront_contact/?msg=invalidemail");
   }
 
-  res.render('storefront_contact_success', {user: user});
+  res.render('storefront_contact_success', {user: user, shopname});
 
 });
 
