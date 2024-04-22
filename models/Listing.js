@@ -2,6 +2,7 @@ const sequelize = require('../db')
 const { Model, DataTypes } = require('sequelize')
 
 class Listing extends Model {
+  
     static async findListing(id) {
         try {
             const listing = await Listing.findByPk(id)

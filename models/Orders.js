@@ -2,16 +2,17 @@ const sequelize = require('../db')
 const { Model, DataTypes } = require('sequelize')
 
 class Orders extends Model {
-    static async findOrders(ordernum) {
-        try {
-            const order = await Orders.findByPk(ordernum)
-            return order ? order : null;
-        } catch(error) {
-            console.log(error)
-            return null
-        }
-    }
+  static async findOrders() {
+      try {
+          const orders = await Orders.findAll();
+          return orders ? orders : [];
+      } catch(error) {
+          console.log(error);
+          return [];
+      }
+  }
 }
+
 
 Orders.init({
   purchasedby: {
