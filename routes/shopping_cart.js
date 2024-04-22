@@ -28,13 +28,16 @@ router.get('/', async function (req, res, next) {
       console.log("Listing price: ", listing.listingprice)
       console.log("Listing price type: ", typeof listing.listingprice)
 
+      // Get the quantity of the listing from the cart
+      const quantity = cart.filter(item => item === listing.id.toString()).length;
+
       // Remove the dollar sign and convert the listing price string to a floating-point number
       let price = parseFloat(listing.listingprice.replace('$', ''));
 
       console.log("Price: ", price)
 
-      // Add the price to the total
-      totalPrice += price;
+      // Add the price multiplied by the quantity to the total
+      totalPrice += price * quantity;
     }
 
     console.log("Total price: ", totalPrice);
@@ -47,5 +50,6 @@ router.get('/', async function (req, res, next) {
     res.status(500).send('Internal Server Error');
   }
 });
+
 
 module.exports = router;

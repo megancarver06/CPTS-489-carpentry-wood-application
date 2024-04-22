@@ -188,26 +188,25 @@
                                 <h2><%= listing.listingtitle %></h2>
                             </div>
                             <div class="col-2" style="display: inline-flex;">
-                                <button  class="quantitybutton"
-                                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                <button class="quantitybutton" onclick="updateQuantity(this, 'decrease')">
                                     <i>-</i>
                                 </button>
-                
-                                <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control form-control-sm"/>
-                
-                                <button class="quantitybutton" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+    
+                                <input data-price="<%= listing.listingprice %>" id="quantity_<%= listing.id %>" min="0" name="quantity" value="1" type="number" class="form-control form-control-sm" onchange="updateTotal(this)"/>
+    
+                                <button class="quantitybutton" onclick="updateQuantity(this, 'increase')">
                                     <i>+</i>
                                 </button>
                             </div>  
                             <div class="col-1">
-                                <h6><%= listing.listingprice %></h6>
+                                <h6 id="price_<%= listing.id %>"><%= listing.listingprice %></h6>
                             </div>
                         </div>
                     </div>
                 </div>  
                 <% } %>
-
-                
+    
+    
                 <div class="row">
                     <p style="font-style:italic; margin: 0px; padding: 0px; text-align: right;">Cost of tax and shipping will be calculated during checkout</p>
                 </div>
@@ -216,7 +215,7 @@
                         <h1>Total</h1>
                     </div>
                     <div class="col align-self-end">
-                        <h1 style="text-align: right;">$ <%= total %></h1>
+                        <h1 id="total" style="text-align: right;">$ <%= total %></h1>
                     </div>
                 </div>                
                 <div class="row justify-content-end">
@@ -225,11 +224,39 @@
                         <input type="submit" value="Proceed to Checkout">
                     </div>
                 </div>
-
+    
             </div>
         </div>
     </div>
-
+    
+    <script>
+        function updateQuantity(button, action) {
+            const input = button.parentNode.querySelector('input[type=number]');
+            let newValue = parseInt(input.value);
+            if (action === 'increase') {
+                newValue += 1;
+            } else if (action === 'decrease') {
+                if (newValue > 1) {
+                    newValue -= 1;
+                }
+            }
+            input.value = newValue;
+            updateTotal();
+        }
+    
+        function updateTotal() {
+            const inputs = document.querySelectorAll('input[type=number]');
+            let total = 0;
+            inputs.forEach(input => {
+                const price = parseFloat(input.getAttribute('data-price').replace('$', ''));
+                const quantity = parseInt(input.value);
+                total += price * quantity;
+            });
+            document.getElementById('total').innerText = '$ ' + total.toFixed(2);
+        }
+    </script>
+    
+    
     <div id="footer"></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
