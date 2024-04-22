@@ -14,11 +14,6 @@ class Orders extends Model {
 }
 
 Orders.init({
-  ordernum: {
-    type: DataTypes.STRING,
-    primaryKey: true,
-    allowNull: false
-  },
   purchasedby: {
     type: DataTypes.STRING,
     allowNull: false

@@ -107,6 +107,20 @@
             display: flex;
             justify-content: flex-end;
         }
+
+        .profile-card {
+            position: relative;
+            z-index: 1;
+            /* Other styles for the profile card */
+        }
+
+        .order-history-card {
+            position: relative;
+            
+            z-index: 0;
+            /* Other styles for the order history card */
+        }
+
     </style>
 
     <%- include('navbar'); %>
@@ -114,35 +128,35 @@
     <!--    ----- ADD NEW CONTENT HERE -----    -->
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-4">
-                <!-- User Profile Card -->
-                <div class="card">
-                    <div class="card-header">
-                        Profile Information
+            <div class="row">
+                <div class="col-lg-4">
+                  <div class="card mb-4">
+                    <div class="card-body text-center">
+                      <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                        class="rounded-circle img-fluid" style="width: 150px;">
+                      <h5 class="my-3"><%= user.username%></h5>
+                      <% if (user && user.usertype === 'Seller') { %>
+                      <p class="text-muted mb-1"><%= user.shopdesc%></p>
+                        <% } %>
+                      <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
+                      <div class="d-flex justify-content-center mb-2">
+                        <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary">Follow</button>
+                        <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-primary ms-1">Message</button>
+                      </div>
                     </div>
-                    <div class="card-body">
-                        <!-- User Image -->
-                        <img src="user-image.jpg" class="img-fluid rounded-circle mb-3" alt="User Image">
-                        <!-- User Name -->
-                        <h5 class="card-title">John Doe</h5>
-                        <!-- User Email -->
-                        <p class="card-text">john.doe@example.com</p>
-                        <p id = "ratings">Seller Rating: 4.5/5</p>
-                        <p id = "user-address">1234 Main St, Springfield, IL 62701</p>
-                    </div>
-                    <div class ="form_element">
-                        <input type ="submit" value ="Request Custom Order">
-                    </div>
-                    <div class ="form_element">
-                        <input type ="submit" value ="Contact Us">
-                    </div>
-                </div>
-            </div>
+                  </div>
             <div class="col-md-8">
                 <!-- Order History -->
-                <div class="card">
+                <div class="card order-history-card">
                     <div class="card-header">
-                        Featured Items
+                        <% if (user) {%>
+                            <% if (user.usertype === 'Seller') { %>
+                                Featured Items
+                            <% } %>
+                            <% if (user.usertype === 'Buyer') { %>
+                                Order History
+                            <% } %>
+                        <% } %>
                     </div>
                     <div class="card-body">
                         <!-- Orders List -->
