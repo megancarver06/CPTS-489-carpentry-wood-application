@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TheWoodWorks | Storefront - Artist Info</title>
+    <title>TheWoodWorks | Storefront - Contact</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="buyer_index.css">
@@ -107,6 +107,10 @@
             justify-content: flex-end; 
         }
 
+        a {
+            text-decoration: none;
+        }
+
         p {
             color: #4d243d;
         }
@@ -143,16 +147,6 @@
             border: 0px;
             border-radius: 20px;
         }
-        
-        .artistimage {
-            width: 100%;
-            object-fit: contain;
-            margin-top: 50px;
-        }
-
-        .starrating {
-            color:#d0a98f;
-        }
 
         .shopmenu {
             border-bottom: 6px solid #4d243d;
@@ -160,6 +154,52 @@
         
         .shopmenuitem:hover {
             border-bottom: 0px;
+        }
+
+        .form {
+            background-color: #ecdcc9;
+            padding: 40px;
+            margin-top: 20px;
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .form_element {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 2px solid #cac2b5;
+        }
+
+        label {
+            color: #4d243d;
+            font-size: 16px;
+            font-weight: bold;
+            padding-bottom: 5px;
+        }
+
+        input[type=submit] {
+            background-color: #4d243d;
+            color: #d0a98f;
+            font-weight: bold;
+            padding: 12px 20px;
+            border: 2px solid #cac2b5;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            color:#4d243d;
+            background-color: #d0a98f;
+        }
+
+        .starrating {
+            color:#d0a98f;
         }
     </style>
 
@@ -188,47 +228,25 @@
                     <div class="shopmenu">
                         <nav>
                             <ul>
-                                <li><a id="menu-link" href="storefront_shop" class="shopmenuitem">Shop</a></li>
-                                <li><a id="menu-link" href="storefront_info" class="shopmenuitem" style="background-color: #ecdcc9;">About the Artist</a></li>
-                                <li><a id="menu-link" href="storefront_contact" class="shopmenuitem">Contact</a></li>
+                                <li><a id="menu-link" href="/storefront_shop" class="shopmenuitem">Shop</a></li>
+                                <li><a id="menu-link" href="/storefront_info" class="shopmenuitem">About the Artist</a></li>
+                                <li><a id="menu-link" href="/storefront_contact" class="shopmenuitem"  style="background-color: #ecdcc9;">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-9">
-                        <h3>Meet the Artist</h3>
-                        <h2>Johnny Appleseed</h2>
-                        <p>Johnny Appleseed, the skilled carpenter behind Timber Treasures, has been crafting exquisite handmade furniture since 2008. 
-                            With a keen eye for design and a dedication to quality, Johnny has established Timber Treasures as a premier destination for modern bedroom 
-                            and office furniture. Each piece emanates a sense of artistry and functionality, reflecting Johnny's passion for his craft and commitment to 
-                            providing customers with timeless pieces that enhance any space.
-                        </p>
-                        <p>At Timber Treasures, Johnny Appleseed's craftsmanship goes beyond mere functionality, infusing each piece with a unique blend 
-                            of style and durability. With a meticulous attention to detail, Johnny sources only the finest materials to ensure that every creation 
-                            meets his exacting standards. Whether it's a sleek, minimalist desk for a contemporary office or a cozy, inviting bed for a modern bedroom, 
-                            each item from Timber Treasures is a testament to Johnny's expertise and commitment to excellence.
-                        </p>
-                        <p>Beyond crafting furniture, Johnny Appleseed's vision extends to creating environments that inspire and elevate daily living. By seamlessly 
-                            blending form and function, Johnny's designs strike the perfect balance between aesthetics and practicality. Whether clients seek to transform 
-                            their living spaces into tranquil retreats or productive work environments, Timber Treasures offers an array of meticulously crafted pieces that 
-                            embody Johnny's signature style and dedication to superior craftsmanship.
-                        </p>  
-                        <p>Outside of his woodworking pursuits, Johnny Appleseed is an avid nature enthusiast, often spending his free time hiking through the nearby forests 
-                            and sketching the beauty of the wilderness. Despite his busy schedule, he prioritizes quality time with his family, sharing his love for woodworking 
-                            with his children and instilling in them the values of creativity and craftsmanship. With a deep appreciation for both the natural world and the warmth 
-                            of family bonds, Johnny embodies a holistic approach to life that enriches both his craft and his relationships.
-                        </p>
-                    </div>
-                    <div class="col-3">
-                        <img src="Images/Wireframe Placeholder Images/johnnyappleseed1.jpg" class="artistimage">
+                    <div class="container form">
+                            <h1>Your email has been received!</h1>
+                            <p>Thank you for contacting the artist, they will get back to you as soon as possible.</p>
                     </div>
                 </div>
-                
             </div>
         </div>
     </div>
 
+    <%- include('formmsg'); %>
+    
     <div id="footer"></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
