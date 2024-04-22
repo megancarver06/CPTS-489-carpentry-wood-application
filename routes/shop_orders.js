@@ -17,7 +17,7 @@ router.get('/', async function(req, res, next) {
 });
 
 router.post("/print_invoice/:id", async function(req, res, next) {
-  const order = await Orders.findOrders(req.params.id)
+  const order = await Orders.findByOrderNumber(req.params.id)
   const listing = await Listing.findListing(order.listingid)
   
   res.render('invoice', {order, listing});

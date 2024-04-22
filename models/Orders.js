@@ -11,6 +11,16 @@ class Orders extends Model {
           return [];
       }
   }
+
+  static async findByOrderNumber(ordernum) {
+    try {
+        const order = await Orders.findByPk(ordernum)
+        return order ? order : null;
+    } catch(error) {
+        console.log(error)
+        return null
+    }
+}
 }
 
 
