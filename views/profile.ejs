@@ -163,7 +163,10 @@
                         <!-- Orders List -->
                         <ul class="list-group">
                             <% for(listing of listings) { %>
-                            <li class="list-group-item"><a href="/shop_inventory"><%= listing.listingtitle %></a></li>
+                                <li class="list-group-item"><a href="/shop_inventory"><%= listing.listingtitle %></a></li>
+                            <% } %>
+                            <% for(order of orders) { %>
+                                <li class="list-group-item"><a href="/order_history"><%= order.id %></a></li>
                             <% } %>
 
                         </ul>
