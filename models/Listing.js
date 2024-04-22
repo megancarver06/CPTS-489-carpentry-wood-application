@@ -15,19 +15,19 @@ class Listing extends Model {
 
 Listing.init({
   image1: {
-    type: DataTypes.STRING,
+    type: DataTypes.BLOB,
     allowNull: false
   },
   image2: {
-    type: DataTypes.STRING,
+    type: DataTypes.BLOB,
     allowNull: false
   },
   image3: {
-    type: DataTypes.STRING,
+    type: DataTypes.BLOB,
     allowNull: false
   },
   image4: {
-    type: DataTypes.STRING,
+    type: DataTypes.BLOB,
     allowNull: false
   },
   listingtitle: {
