@@ -231,13 +231,13 @@
     <div class="container">
         <div class="row">
             <div class="row col">
-                <img src="Images/Wireframe Placeholder Images/shopheader.jpg" class="headerimage">
+                <img src="/Images/Wireframe Placeholder Images/shopheader.jpg" class="headerimage">
                 <!-- <img src="Images/Branding/TheWoodWorks Wood3.png" class="profileimage"> -->
                 <div class="row">
                     <div class="col-3"></div>
                     <div class="col">
                         <br>
-                        <h1>Timber Treasures</h1>
+                        <h1><%= shopname %></h1>
                         <span class="fa fa-star starrating"></span>
                         <span class="fa fa-star starrating"></span>
                         <span class="fa fa-star starrating"></span>
@@ -250,9 +250,9 @@
                     <div class="shopmenu">
                         <nav>
                             <ul>
-                                <li><a id="menu-link" href="/storefront_shop" class="shopmenuitem" style="background-color: #ecdcc9;">Shop</a></li>
-                                <li><a id="menu-link" href="/storefront_info" class="shopmenuitem">About the Artist</a></li>
-                                <li><a id="menu-link" href="/storefront_contact" class="shopmenuitem">Contact</a></li>
+                                <li><a id="menu-link" href=<%= "/storefront_shop/"+shopname%> class="shopmenuitem"  style="background-color: #ecdcc9;">Shop</a></li>
+                                <li><a id="menu-link" href=<%= "/storefront_info/"+shopname%> class="shopmenuitem">About the Artist</a></li>
+                                <li><a id="menu-link" href=<%= "/storefront_contact/"+shopname%> class="shopmenuitem">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -265,8 +265,8 @@
                 <div class="row row-cols-4">
                     <% for(listing of listings) { %>
                         <div>
-                            <a href="product_details">
-                                <img class="shop_image" src="Images/Wireframe Placeholder Images/dresser.jpeg">
+                            <a href=<%="/product_details/"+listing.id %>>
+                                <img class="shop_image" src="/Images/Wireframe Placeholder Images/dresser.jpeg">
                                 <p class="shopitem" style="text-decoration: none;"><%= listing.listingtitle %></p></a>
                                 <div style="display: inline-flex;">
                                     <p class="producttag-item"> <%= listing.productcategory %> </p>

@@ -169,13 +169,13 @@
     <div class="container">
         <div class="row">
             <div class="row col">
-                <img src="Images/Wireframe Placeholder Images/shopheader.jpg" class="headerimage">
+                <img src="/Images/Wireframe Placeholder Images/shopheader.jpg" class="headerimage">
                 <!-- <img src="Images/Branding/TheWoodWorks Wood3.png" class="profileimage"> -->
                 <div class="row">
                     <div class="col-3"></div>
                     <div class="col">
                         <br>
-                        <h1>Timber Treasures</h1>
+                        <h1><%= shopname %></h1>
                         <span class="fa fa-star starrating"></span>
                         <span class="fa fa-star starrating"></span>
                         <span class="fa fa-star starrating"></span>
@@ -188,9 +188,9 @@
                     <div class="shopmenu">
                         <nav>
                             <ul>
-                                <li><a id="menu-link" href="storefront_shop" class="shopmenuitem">Shop</a></li>
-                                <li><a id="menu-link" href="storefront_info" class="shopmenuitem" style="background-color: #ecdcc9;">About the Artist</a></li>
-                                <li><a id="menu-link" href="storefront_contact" class="shopmenuitem">Contact</a></li>
+                                <li><a id="menu-link" href=<%= "/storefront_shop/"+shopname%> class="shopmenuitem">Shop</a></li>
+                                <li><a id="menu-link" href=<%= "/storefront_info/"+shopname%> class="shopmenuitem" style="background-color: #ecdcc9;">About the Artist</a></li>
+                                <li><a id="menu-link" href=<%= "/storefront_contact/"+shopname%> class="shopmenuitem">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -221,7 +221,7 @@
                         </p>
                     </div>
                     <div class="col-3">
-                        <img src="Images/Wireframe Placeholder Images/johnnyappleseed1.jpg" class="artistimage">
+                        <img src="/Images/Wireframe Placeholder Images/johnnyappleseed1.jpg" class="artistimage">
                     </div>
                 </div>
                 
