@@ -5,21 +5,47 @@ const Listing = require('../models/Listing');
 const User = require('../models/User');
 
 /* GET home page. */
-router.get('/', async function(req, res, next) {
-  const user = await User.getUser(req.user.username)
-  let stringcart = user.cart;
-
-  const cart = stringcart.split(',');
-  console.log("Spliced cart is ", cart)
-
-
-  const listings = await Listing.findAll({
-    where: {
-      id: cart
+router.get('/', async function (req, res, next) {
+  try {
+    const user = await User.getUser(req.user.username);
+    let stringcart = user.cart;
+    let cart = [];
+    if (stringcart) {
+      cart = stringcart.split(',');
     }
-  });
+    console.log("Spliced cart is ", cart);
 
-  res.render('shopping_cart', {listings, user: user});
+    const listings = await Listing.findAll({
+      where: {
+        id: cart
+      }
+    });
+
+    // Calculate total price
+    let totalPrice = 0;
+    for (let listing of listings) {
+      console.log("Listing: ", listing)
+      console.log("Listing price: ", listing.listingprice)
+      console.log("Listing price type: ", typeof listing.listingprice)
+
+      // Remove the dollar sign and convert the listing price string to a floating-point number
+      let price = parseFloat(listing.listingprice.replace('$', ''));
+
+      console.log("Price: ", price)
+
+      // Add the price to the total
+      totalPrice += price;
+    }
+
+    console.log("Total price: ", totalPrice);
+
+
+    // Render the shopping cart page with the total
+    res.render('shopping_cart', { listings, user: user, total: totalPrice.toFixed(2) });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Internal Server Error');
+  }
 });
 
 module.exports = router;
