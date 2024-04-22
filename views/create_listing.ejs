@@ -129,34 +129,90 @@
         input[type=submit]:hover {
             background-color: #ecdcc9;
         }
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            background-color: #ecdcc9;
+            /* Same background color */
+            border-radius: 5px;
+            border: 2px solid #cac2b5;
+            /* color: #000; Text color */
+        }
+
+        textarea.form-control {
+            height: 100px;
+            background-color: #ecdcc9;
+            border-radius: 5px;
+            border: 2px solid #cac2b5;
+
+        }
     </style>
 
     <%- include('navbar'); %>
 
     <!--    ----- ADD NEW CONTENT HERE -----    -->
     <div class="container form">
-        <form action="/create_listing/submit" method="post">
+        <form action="/create_listing/create" method="post">
             <div class="form_element">
                 <h1>Create New Listing</h1>
             </div>
 
             <div class="form_element">
                 <label for="listingtitle">Listing Title</label>
-                <input type="text" id="listingtitle" name="listingtitle" placeholder="Name Your Listing">
+                <input required type="text" id="listingtitle" name="listingtitle" placeholder="Name Your Listing">
             </div>
 
             <div class="form_element">
                 <label for="listingprice">Listing Price</label>
-                <input type="text" id="listingprice" name="listingprice" placeholder="$00.00">
+                <input required type="text" id="listingprice" name="listingprice" placeholder="$00.00">
             </div>
 
             <div class="form_element">
                 <div>
-                    <label for="listingdesc">Listing Description</label>
+                    <label for="listingdesc">Product Description</label>
                 </div>
                 <div>
                     <textarea id="listingdesc" name="listingdesc" placeholder="Give a brief description about your product." style="height:200px"></textarea>
                 </div>
+            </div>
+
+            <div class="form_element">
+                <label for="listingwidth">Product Width</label>
+                <input required type="text" id="listingwidth" name="listingwidth" placeholder="90in">
+            </div>
+
+            <div class="form_element">
+                <label for="listingheight">Product Height</label>
+                <input required type="text" id="listingheight" name="listingheight" placeholder="90in">
+            </div>
+
+            <div class="form_element">
+                <label for="listingdepth">Product Depth</label>
+                <input required type="text" id="listingdepth" name="listingdepth" placeholder="90in">
+            </div>
+
+            <div class="form_element">
+                <label for="spacecategory">What space best suits your product?</label>
+                    <select required class="form-control" id="spacecategory" name="spacecategory">
+                        <option>living room</option>
+                        <option>dining room</option>
+                        <option>office</option>
+                        <option>bedroom</option>
+                        <option>kitchen</option>
+                        <option>outdoors</option>
+                    </select>
+            </div>
+
+            <div class="form_element">
+                <label for="productcategory">What space best suits your product?</label>
+                    <select required class="form-control" id="productcategory" name="productcategory">
+                        <option>chairs and stools</option>
+                        <option>tables and desks</option>
+                        <option>dressers</option>
+                        <option>storage and organization</option>
+                        <option>signage and decor</option>
+                        <option>dishes and cutting boards</option>
+                    </select>
             </div>
 
             <div class="form_element">
