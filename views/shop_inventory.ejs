@@ -172,125 +172,42 @@
                     </div>
                 </div>
                 
+                <div></div>
 
-                <hr>
-                <div class="row" style="margin-bottom: 20px;">
-                    <div class="col-3">
-                        <img src="Images/Wireframe Placeholder Images/dresser.jpeg" style="max-height:350px;">
-                    </div>
-                    <div class="col-7">
-                        <h2>Product Title</h2>
-                        <div style="display: inline-flex;">
-                            <p>Quantity Available:</p>
-                            <p style="font-weight: bold; margin-inline: 5px;">10</p>
+                <% for(listing of listings) { %>
+                    <div class="row" style="margin-bottom: 20px;">
+                        <div class="col-3">
+                            <img src="/Images/Wireframe Placeholder Images/dresser.jpeg" style="max-height:350px;">
                         </div>
-                        <br>
-                        <div style="display: inline-flex;">
-                            <p>Listed Price:</p>
-                            <p style="font-weight: bold; margin-inline: 5px;">$399.99</p>
+                        <div class="col-7">
+                            <h2><%= listing.listingtitle %></h2>
+                            <div style="display: inline-flex;">
+                                <p>Quantity Available:</p>
+                                <p style="font-weight: bold; margin-inline: 5px;">10</p>
+                            </div>
+                            <br>
+                            <div style="display: inline-flex;">
+                                <p>Price:</p>
+                                <p style="font-weight: bold; margin-inline: 5px;"><%= listing.listingprice %></p>
+                            </div>
+                            <p> <%= listing.listingdesc %> </p>
+                            <br>
+                            <div style="display: inline-flex;">
+                                <p style="margin: 5px; padding: 5px;">Item Categories:</p>
+                                <p class="producttag-item"> <%= listing.productcategory %> </p>
+                                <p class="producttag-item"> <%= listing.spacecategory %></p>
+                            </div>
                         </div>
-                        <p> This is a general description of the product. There are many words that will go here.
-                            Like who made the product, how they made the product, what special features it might have,
-                            etc. They might also go off to talk about great locations for it, what household themes could
-                            match the vibe, and other necessary information to encourage customers to purchase their
-                            product over any other product available on the market.
-                        </p>
-                        <div style="display: inline-flex;">
-                            <p style="margin: 5px; padding: 5px;">Wood Types:</p>
-                            <p class="producttag-wood"> Oak </p>
-                        </div>
-                        <br>
-                        <div style="display: inline-flex;">
-                            <p style="margin: 5px; padding: 5px;">Item Categories:</p>
-                            <p class="producttag-item"> Dresser </p>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form_element">
-                            <input type="submit" value="Edit Product">
+                        <div class="col-2">
+                            <div class="form_element">
+                                <form action= <%= "/shop_inventory/delete/"+listing.id %> method="get">
+                                    <input type="submit" value="Delete Listing">
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <hr>
-                <div class="row" style="margin-bottom: 20px;">
-                    <div class="col-3">
-                        <img src="Images/Wireframe Placeholder Images/dresser.jpeg" style="max-height:350px;">
-                    </div>
-                    <div class="col-7">
-                        <h2>Product Title</h2>
-                        <div style="display: inline-flex;">
-                            <p>Quantity Available:</p>
-                            <p style="font-weight: bold; margin-inline: 5px;">10</p>
-                        </div>
-                        <br>
-                        <div style="display: inline-flex;">
-                            <p>Listed Price:</p>
-                            <p style="font-weight: bold; margin-inline: 5px;">$399.99</p>
-                        </div>
-                        <p> This is a general description of the product. There are many words that will go here.
-                            Like who made the product, how they made the product, what special features it might have,
-                            etc. They might also go off to talk about great locations for it, what household themes could
-                            match the vibe, and other necessary information to encourage customers to purchase their
-                            product over any other product available on the market.
-                        </p>
-                        <div style="display: inline-flex;">
-                            <p style="margin: 5px; padding: 5px;">Wood Types:</p>
-                            <p class="producttag-wood"> Oak </p>
-                            <p class="producttag-wood"> Maple </p>
-                        </div>
-                        <br>
-                        <div style="display: inline-flex;">
-                            <p style="margin: 5px; padding: 5px;">Item Categories:</p>
-                            <p class="producttag-item"> Dresser </p>
-                            <p class="producttag-item"> Bedroom </p>
-                            <p class="producttag-item"> Storage </p>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form_element">
-                            <input type="submit" value="Edit Product">
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row" style="margin-bottom: 20px;">
-                    <div class="col-3">
-                        <img src="Images/Wireframe Placeholder Images/dresser.jpeg" style="max-height:350px;">
-                    </div>
-                    <div class="col-7">
-                        <h2>Product Title</h2>
-                        <div style="display: inline-flex;">
-                            <p>Quantity Available:</p>
-                            <p style="font-weight: bold; margin-inline: 5px;">10</p>
-                        </div>
-                        <br>
-                        <div style="display: inline-flex;">
-                            <p>Listed Price:</p>
-                            <p style="font-weight: bold; margin-inline: 5px;">$399.99</p>
-                        </div>
-                        <p> This is a general description of the product. There are many words that will go here.
-                            Like who made the product, how they made the product, what special features it might have,
-                            etc. They might also go off to talk about great locations for it, what household themes could
-                            match the vibe, and other necessary information to encourage customers to purchase their
-                            product over any other product available on the market.
-                        </p>
-                        <div style="display: inline-flex;">
-                            <p style="margin: 5px; padding: 5px;">Wood Types:</p>
-                            <p class="producttag-wood"> Maple </p>
-                            <p class="producttag-wood"> Birch </p>
-                        </div>
-                        <br>
-                        <div style="display: inline-flex;">
-                            <p style="margin: 5px; padding: 5px;">Item Categories:</p>
-                            <p class="producttag-item"> Dresser </p>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form_element">
-                            <input type="submit" value="Edit Product">
-                        </div>
-                    </div>
-                </div>
+                <% } %>
+
             </div>
         </div>
     </div>
