@@ -204,80 +204,30 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row justify-content-md-center order">
-                    <div class="col-8">
-                        <h2>Order #123456</h2>
-                        <div style="display: inline-flex">
-                            <p style="font-weight: bold; margin-inline: 5px;">Date Placed:</p>
-                            <p>03/07/2024</p>
+                <% for (order of orders) { %>
+                    <div class="row justify-content-md-center order">
+                        <div class="col-8">
+                            <h2 style="color: #4d243d"><%= "Order #"+order.id %></h2>
+                            <div style="display: inline-flex">
+                                <p style="font-weight: bold; margin-inline: 5px;">Date Placed:</p>
+                                <p><%= order.createdAt %></p>
+                            </div>
+                            <br>
+                            <div style="display: inline-flex">
+                                <p style="font-weight: bold; margin-inline: 5px;">Order Status: </p>
+                            </div>
+                            <br>
                         </div>
-                        <br>
-                        <div style="display: inline-flex">
-                            <p style="font-weight: bold; margin-inline: 5px;">Order Status:</p>
-                            <p>Shipped</p>
-                        </div>
-                        <br>
-                        <div style="display: inline-flex">
-                            <p style="font-weight: bold; margin-inline: 5px;">Quantity of items:</p>
-                            <p>3</p>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <input type="submit" value="View Details">
-                        <input type="submit" value="Print Shipping Label">
-                    </div>
-                </div>
-                <div class="row justify-content-md-center order">
-                    <div class="col-8">
-                        <h2>Order #237890</h2>
-                        <div style="display: inline-flex">
-                            <p style="font-weight: bold; margin-inline: 5px;">Date Placed:</p>
-                            <p>03/17/2024</p>
-                        </div>
-                        <br>
-                        <div style="display: inline-flex">
-                            <p style="font-weight: bold; margin-inline: 5px;">Order Status:</p>
-                            <p>Processing</p>
-                        </div>
-                        <br>
-                        <div style="display: inline-flex">
-                            <p style="font-weight: bold; margin-inline: 5px;">Quantity of items:</p>
-                            <p>20</p>
+                        <div class="col-3">
+                            <input type="submit" value="View Details">
+                            <input type="submit" value="Print Invoice">
                         </div>
                     </div>
-                    <div class="col-3">
-                        <input type="submit" value="View Details">
-                        <input type="submit" value="Print Shipping Label">
-                    </div>
-                </div>
-                <div class="row justify-content-md-center order">
-                    <div class="col-8">
-                        <h2>Order #444444</h2>
-                        <div style="display: inline-flex">
-                            <p style="font-weight: bold; margin-inline: 5px;">Date Placed:</p>
-                            <p>03/27/2024</p>
-                        </div>
-                        <br>
-                        <div style="display: inline-flex">
-                            <p style="font-weight: bold; margin-inline: 5px;">Order Status:</p>
-                            <p>Received</p>
-                        </div>
-                        <br>
-                        <div style="display: inline-flex">
-                            <p style="font-weight: bold; margin-inline: 5px;">Quantity of items:</p>
-                            <p>1</p>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <input type="submit" value="View Details">
-                        <input type="submit" value="Print Shipping Label">
-                    </div>
-                </div>
+                <% } %>
                 </div>
             </div>
         </div>
     </div>
-
     <div id="footer"></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
